@@ -251,12 +251,20 @@ def registro_unificado(request):
         )
 
 
-@api_view(['POST'])
+@api_view(['POST', 'OPTIONS'])
 @permission_classes([AllowAny])
 def solicitar_codigo_recuperacion(request):
     """
     Solicitar código de recuperación de contraseña
     """
+    # Handle preflight OPTIONS request
+    if request.method == 'OPTIONS':
+        response = Response()
+        response['Access-Control-Allow-Origin'] = '*'
+        response['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+        response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+        return response
+    
     serializer = SolicitudCodigoSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -296,12 +304,20 @@ def solicitar_codigo_recuperacion(request):
         )
 
 
-@api_view(['POST'])
+@api_view(['POST', 'OPTIONS'])
 @permission_classes([AllowAny])
 def confirmar_codigo_recuperacion(request):
     """
     Confirmar código de recuperación y cambiar contraseña
     """
+    # Handle preflight OPTIONS request
+    if request.method == 'OPTIONS':
+        response = Response()
+        response['Access-Control-Allow-Origin'] = '*'
+        response['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+        response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+        return response
+    
     serializer = ConfirmarCodigoSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

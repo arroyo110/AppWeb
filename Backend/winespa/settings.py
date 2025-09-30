@@ -213,11 +213,11 @@ EMAIL_CONNECTION_TIMEOUT = 10  # 10 seconds connection timeout
 # CORS Configuration
 # https://pypi.org/project/django-cors-headers/
 
-# CORS Configuration
-CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins (only for development)
-CORS_ALLOW_CREDENTIALS = True  # Allow cookies in requests
+# Allow all origins for development and production
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
-# Specific allowed origins for production
+# Specific allowed origins (backup list)
 CORS_ALLOWED_ORIGINS = [
     "https://app-web-two-roan.vercel.app",
     "https://appweb-rxph.onrender.com",
@@ -225,10 +225,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
 
-# Force CORS to work
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-
+# Allowed methods
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -238,6 +235,7 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
+# Allowed headers
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
@@ -249,6 +247,13 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+# Preflight cache duration
+CORS_PREFLIGHT_MAX_AGE = 86400  # 24 hours
+
+# Additional CORS settings for production
+CORS_ALLOW_PRIVATE_NETWORK = True
+CORS_REPLACE_HTTPS_REFERER = True
 
 # Cache Configuration
 # https://docs.djangoproject.com/en/5.2/topics/cache/

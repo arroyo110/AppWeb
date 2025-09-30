@@ -1,0 +1,610 @@
+/* ===== ESTILOS ESPECÍFICOS PARA MODALES DE INSUMOS ===== */
+
+/* ===== MODALES ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.modal-container {
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(52, 144, 220, 0.15);
+  width: 95%;
+  max-width: 800px;
+  max-height: 95vh;
+  height: auto;
+  overflow: hidden;
+  animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-container.confirm-dialog {
+  max-width: 500px;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: none;
+  background: linear-gradient(135deg, rgba(52, 144, 220, 0.12), rgba(52, 144, 220, 0.05));
+  border-radius: 16px 16px 0 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.modal-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #3490dc, #74b9ff);
+  border-radius: 16px 16px 0 0;
+}
+
+.modal-header h2 {
+  font-size: 1.8rem;
+  color: #212529;
+  margin: 0;
+  font-weight: 700;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.modal-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, #3490dc, #74b9ff);
+  border-radius: 3px;
+}
+
+.modal-close {
+  background: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close:hover {
+  color: #dc3545;
+  transform: rotate(90deg);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);
+}
+
+/* ===== FORMULARIOS ===== */
+.admin-form {
+  padding: 1.5rem 2rem;
+  max-height: calc(95vh - 140px);
+  overflow-y: auto;
+  flex: 1 1 auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #212529;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.form-icon {
+  color: #3490dc;
+  font-size: 1.1rem;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f9f9fa;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3490dc;
+  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  background-color: white;
+  transform: translateY(-2px);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* ===== CAMPOS EN MODO VIEW (SOLO LECTURA) ===== */
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+  background-color: #f8f9fa;
+  color: #495057;
+  cursor: not-allowed;
+  border-color: #e9ecef;
+  transform: none;
+}
+
+.form-group input:disabled:focus,
+.form-group select:disabled:focus,
+.form-group textarea:disabled:focus {
+  box-shadow: none;
+  transform: none;
+}
+
+/* ===== MENSAJES DE ERROR ===== */
+.error-text {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-text::before {
+  content: "•";
+  font-weight: bold;
+}
+
+.general-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f5c6cb;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* ===== CONTADORES DE CARACTERES ===== */
+.character-count {
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-align: right;
+  margin-top: 0.2rem;
+}
+
+.character-count.warning {
+  color: #f59e0b;
+}
+
+.character-count.danger {
+  color: #dc3545;
+}
+
+/* ===== ACCIONES ===== */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border-top: 1px solid rgba(222, 226, 230, 0.7);
+  background: white;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.form-actions::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(52, 144, 220, 0.3), rgba(52, 144, 220, 0.3), transparent);
+}
+
+/* ===== VISTA DE DETALLES ===== */
+.user-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.detail-icon {
+  color: #3490dc;
+  font-size: 1rem;
+}
+
+.detail-value {
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  color: #212529;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-value.stock-warning {
+  background-color: #fff3cd;
+  border-color: #ffeaa7;
+  color: #856404;
+}
+
+.detail-value .warning-icon {
+  color: #f59e0b;
+  font-size: 1rem;
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(222, 226, 230, 0.7);
+  background: white;
+}
+
+/* ===== DIÁLOGO DE CONFIRMACIÓN ===== */
+.confirm-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.confirm-content p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+.warning-text {
+  color: #dc3545;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ===== CAMPOS REQUERIDOS ===== */
+.required-asterisk {
+  color: #dc3545;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA INSUMOS ===== */
+
+/* Indicador de bajo stock en la tabla */
+.stock-warning {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.stock-warning .warning-icon {
+  color: #f59e0b;
+  font-size: 0.9rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Fila de tabla con bajo stock */
+.bajo-stock {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left: 4px solid #ffc107;
+}
+
+.bajo-stock:hover {
+  background-color: rgba(255, 193, 7, 0.15);
+}
+
+/* Campos numéricos específicos */
+.form-group input[type="text"][name="cantidad"],
+.form-group input[type="text"][name="cantidad_minima"] {
+  text-align: right;
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+}
+
+/* ===== ESTILOS GENERALES PARA SELECTS ===== */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Selector de categoría mejorado */
+.form-group select[name="categoria_insumo"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .form-grid,
+  .user-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-container {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .admin-form {
+    padding: 1rem 1.5rem;
+    max-height: calc(95vh - 120px);
+  }
+
+  .form-actions,
+  .detail-actions {
+    padding: 1rem 1.5rem;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-container {
+    width: 95%;
+    max-height: 80vh;
+  }
+
+  .admin-form,
+  .user-details-grid {
+    padding: 1rem;
+  }
+
+  .form-actions,
+  .detail-actions {
+    padding: 1rem;
+  }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ESTILOS PARA SPINNER DE CARGA ===== */
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== MEJORAS VISUALES ESPECÍFICAS ===== */
+
+/* Efecto hover en campos de formulario */
+.form-group input:hover:not(:disabled),
+.form-group select:hover:not(:disabled) {
+  border-color: #74b9ff;
+  box-shadow: 0 2px 8px rgba(52, 144, 220, 0.1);
+}
+
+/* Estilo para campos con valores numéricos */
+.numeric-field {
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
+  letter-spacing: 0.5px;
+}
+
+/* Indicador visual para campos requeridos */
+.form-group label.required::after {
+  content: " *";
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* ===== CAMPOS NUMÉRICOS ALINEADOS A LA DERECHA ===== */
+.numeric-input {
+  text-align: left !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+}
+
+/* Estilo para campos numéricos con advertencia de stock */
+.stock-warning-input {
+  border-color: #ffc107 !important;
+  background-color: #fff3cd !important;
+}
+
+.stock-warning-input:focus {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15) !important;
+}
+
+/* Mensaje de advertencia de stock bajo */
+.stock-warning-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f59e0b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.3rem;
+  animation: pulse 2s infinite;
+}
+
+.stock-warning-message .warning-icon {
+  font-size: 0.9rem;
+}
+
+/* ===== DISPLAY DE ESTADO EN MODO VISTA ===== */
+.status-display {
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== CAMPOS EN MODO VIEW MEJORADOS ===== */
+.form-group input:disabled,
+.form-group select:disabled {
+  background-color: #f8f9fa !important;
+  color: #495057 !important;
+  cursor: not-allowed !important;
+  border-color: #e9ecef !important;
+  transform: none !important;
+  font-weight: 500;
+}
+
+.form-group input:disabled:focus,
+.form-group select:disabled:focus {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Mantener alineación correcta en campos deshabilitados */
+.form-group input.numeric-input:disabled {
+  text-align: left !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}

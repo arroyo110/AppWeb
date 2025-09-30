@@ -1,0 +1,1926 @@
+/* General Modal Styles */
+.citas-module-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.citas-module-modal-container {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInScale 0.3s ease-out;
+}
+
+.citas-module-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.citas-module-modal-header h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+.citas-module-modal-icon {
+  margin-right: 10px;
+  font-size: 1.3em;
+}
+
+.citas-module-modal-icon.warning {
+  color: var(--warning-color);
+}
+
+.citas-module-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.citas-module-modal-close:hover {
+  color: var(--text-color);
+}
+
+.citas-module-modal-body {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.citas-module-warning-section {
+  background-color: rgba(255, 193, 7, 0.1); /* Using direct rgba for warning as it's specific */
+  border: 1px solid var(--warning-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #856404; /* Specific dark yellow for text */
+}
+
+.citas-module-warning-section p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.citas-module-warning-section p:last-child {
+  margin-bottom: 0;
+}
+
+.citas-module-cita-info {
+  background-color: rgba(40, 167, 69, 0.1); /* Using direct rgba for success as it's specific */
+  border: 1px solid var(--success-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-top: 15px;
+  color: #155724; /* Specific dark green for text */
+}
+
+.citas-module-cita-info p {
+  margin: 5px 0;
+}
+
+.citas-module-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 20px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  gap: 10px;
+}
+
+/* General Admin Container */
+.citas-module-admin-container {
+  padding: 0 !important; /* Adjusted as per Admin.css */
+  margin: 0 !important; /* Adjusted as per Admin.css */
+  height: auto;
+  min-height: calc(100vh - 40px); /* Adjusted as per Admin.css */
+  background-color: var(--background-color);
+  transition: var(--transition);
+  width: 100% !important; /* Adjusted as per Admin.css */
+  box-sizing: border-box !important; /* Adjusted as per Admin.css */
+  overflow: hidden;
+}
+
+.citas-module-admin-content-wrapper {
+  background: var(--card-bg); /* Adjusted as per Admin.css */
+  border-radius: 12px; /* Adjusted as per Admin.css */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adjusted as per Admin.css */
+  border: 1px solid var(--border-color); /* Adjusted as per Admin.css */
+  overflow: hidden;
+  margin: 1.5rem; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem 1.5rem; /* Adjusted as per Admin.css */
+  margin-bottom: 0; /* Adjusted as per Admin.css */
+  border-bottom: 1px solid var(--border-color); /* Adjusted as per Admin.css */
+  background: var(--card-bg); /* Adjusted as per Admin.css */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adjusted as per Admin.css */
+  border-radius: 12px 12px 0 0; /* Adjusted as per Admin.css */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.citas-module-admin-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.citas-module-admin-title {
+  font-size: 1.8rem; /* Adjusted as per Admin.css */
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 700; /* Adjusted as per Admin.css */
+  position: relative;
+}
+
+.citas-module-admin-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+  border-radius: 3px;
+}
+
+.citas-module-admin-button {
+  display: inline-flex; /* Adjusted as per Admin.css */
+  align-items: center; /* Adjusted as per Admin.css */
+  justify-content: center; /* Adjusted as per Admin.css */
+  gap: 0.5rem; /* Adjusted as per Admin.css */
+  padding: 0.8rem 1.5rem; /* Adjusted as per Admin.css */
+  border-radius: var(--border-radius);
+  font-weight: 600; /* Adjusted as per Admin.css */
+  cursor: pointer;
+  transition: var(--transition);
+  border: none; /* Adjusted as per Admin.css */
+  font-size: 0.95rem; /* Adjusted as per Admin.css */
+  min-width: 120px; /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-button.primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); /* Adjusted as per Admin.css */
+  color: white;
+  box-shadow: 0 4px 10px rgba(232, 62, 140, 0.3); /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-button.primary:hover {
+  transform: translateY(-3px); /* Adjusted as per Admin.css */
+  box-shadow: 0 6px 15px rgba(232, 62, 140, 0.4); /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-button.secondary {
+  background-color: #f1f3f5; /* Adjusted as per Admin.css */
+  color: var(--secondary-dark); /* Adjusted as per Admin.css */
+  border: 1px solid var(--border-color); /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-button.secondary:hover {
+  background-color: #e9ecef; /* Adjusted as per Admin.css */
+  transform: translateY(-2px); /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-button.danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.citas-module-admin-button.danger:hover {
+  background-color: #c82333;
+}
+
+.citas-module-admin-button:disabled {
+  opacity: 0.7; /* Adjusted as per Admin.css */
+  cursor: not-allowed;
+  transform: none !important; /* Added important to override hover transform */
+}
+
+/* Filters and Search */
+.citas-module-admin-filters {
+  display: flex;
+  flex-wrap: wrap; /* Adjusted as per Admin.css */
+  gap: 1rem; /* Adjusted as per Admin.css */
+  padding: 1.5rem; /* Adjusted as per Admin.css */
+  margin: 0; /* Adjusted as per Admin.css */
+  align-items: center;
+  background: var(--card-bg); /* Adjusted as per Admin.css */
+  border-bottom: 1px solid var(--border-color); /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-filters.disponibilidad {
+  justify-content: space-between;
+}
+
+.citas-module-filters-left,
+.citas-module-filters-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.citas-module-search-container {
+  position: relative;
+  flex: 1; /* Adjusted as per Admin.css */
+  min-width: 200px; /* Adjusted as per Admin.css */
+}
+
+.citas-module-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+}
+
+.citas-module-search-input {
+  width: 100%;
+  padding: 0.7rem 0.7rem 0.7rem 2.8rem; /* Adjusted as per Admin.css */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.95rem; /* Adjusted as per Admin.css */
+  transition: var(--transition);
+}
+
+.citas-module-search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2); /* Adjusted as per Admin.css */
+}
+
+.citas-module-items-per-page {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjusted as per Admin.css */
+  color: var(--text-muted); /* Adjusted as per Admin.css */
+  font-size: 0.9rem; /* Adjusted as per Admin.css */
+}
+
+.citas-module-items-select {
+  padding: 0.5rem; /* Adjusted as per Admin.css */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem; /* Adjusted as per Admin.css */
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.citas-module-items-select:focus {
+  outline: none;
+  border-color: var(--primary-color); /* Adjusted as per Admin.css */
+}
+
+/* Manicuristas Grid */
+.citas-module-manicuristas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 por fila en escritorio */
+  gap: 1.5rem; /* Adjusted as per Novedades.css */
+  padding: 1.5rem; /* Adjusted as per Novedades.css */
+  margin-bottom: 2rem; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-manicurista-card {
+  background: var(--card-bg); /* Adjusted as per Novedades.css */
+  border-radius: 12px; /* Adjusted as per Novedades.css */
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adjusted as per Novedades.css */
+  transition: var(--transition);
+  position: relative;
+  border: 1px solid var(--border-color); /* Adjusted as per Novedades.css */
+}
+
+.citas-module-manicurista-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adjusted as per Novedades.css */
+  transform: translateY(-2px); /* Adjusted as per Novedades.css */
+}
+
+.citas-module-card-border {
+  height: 4px; /* Adjusted as per Novedades.css */
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light)); /* Adjusted as per Novedades.css */
+  width: 100%;
+}
+
+.citas-module-manicurista-content {
+  padding: 2rem 1.5rem 1.5rem; /* Adjusted as per Novedades.css */
+  text-align: center;
+}
+
+.citas-module-manicurista-avatar {
+  width: 80px; /* Adjusted as per Novedades.css */
+  height: 80px; /* Adjusted as per Novedades.css */
+  margin: 0 auto 1.5rem; /* Adjusted as per Novedades.css */
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); /* Adjusted as per Novedades.css */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-manicurista-nombre {
+  font-size: 1.25rem; /* Adjusted as per Novedades.css */
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.citas-module-manicurista-especialidad {
+  color: var(--text-muted);
+  font-size: 0.9rem; /* Adjusted as per Novedades.css */
+  margin-bottom: 2rem; /* Adjusted as per Novedades.css */
+  font-weight: 400; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-manicurista-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-btn-nueva-cita,
+.citas-module-btn-ver-citas {
+  width: 100%;
+  padding: 0.75rem 1rem; /* Adjusted as per Novedades.css */
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.9rem; /* Adjusted as per Novedades.css */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Adjusted as per Novedades.css */
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.citas-module-btn-nueva-cita {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); /* Adjusted as per Novedades.css */
+  color: white;
+  box-shadow: 0 4px 10px rgba(232, 62, 140, 0.3); /* Adjusted as per Novedades.css */
+}
+
+.citas-module-btn-nueva-cita:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)); /* Adjusted as per Novedades.css */
+  transform: translateY(-1px); /* Adjusted as per Novedades.css */
+}
+
+.citas-module-btn-ver-citas {
+  background: var(--secondary-color); /* Adjusted as per Novedades.css */
+  color: white;
+}
+
+.citas-module-btn-ver-citas:hover {
+  background: var(--secondary-dark); /* Adjusted as per Novedades.css */
+  transform: translateY(-1px); /* Adjusted as per Novedades.css */
+}
+
+/* Pagination */
+.citas-module-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Adjusted as per Admin.css */
+  margin-top: 1.5rem; /* Adjusted as per Admin.css */
+  padding: 1.5rem; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-pagination-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; /* Adjusted as per Admin.css */
+  height: 36px; /* Adjusted as per Admin.css */
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg); /* Adjusted as per Admin.css */
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600; /* Adjusted as per Admin.css */
+}
+
+.citas-module-pagination-button:hover:not(:disabled) {
+  background-color: var(--primary-light); /* Adjusted as per Admin.css */
+  border-color: var(--primary-color); /* Adjusted as per Admin.css */
+  color: var(--primary-color); /* Adjusted as per Admin.css */
+}
+
+.citas-module-pagination-button:disabled {
+  opacity: 0.5; /* Adjusted as per Admin.css */
+  cursor: not-allowed;
+}
+
+.citas-module-pagination-info {
+  padding: 0 1rem; /* Adjusted as per Admin.css */
+  color: var(--text-muted); /* Adjusted as per Admin.css */
+  font-size: 0.9rem; /* Adjusted as per Admin.css */
+}
+
+/* Loading State */
+.citas-module-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem; /* Adjusted as per Admin.css */
+  color: var(--text-muted); /* Adjusted as per Admin.css */
+}
+
+.citas-module-spinner {
+  width: 40px; /* Adjusted as per Admin.css */
+  height: 40px; /* Adjusted as per Admin.css */
+  border: 4px solid rgba(232, 62, 140, 0.2); /* Adjusted as per Admin.css */
+  border-radius: 50%;
+  border-top-color: var(--primary-color); /* Adjusted as per Admin.css */
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem; /* Adjusted as per Admin.css */
+}
+
+.citas-module-spinner-small {
+  width: 16px; /* Adjusted as per Admin.css */
+  height: 16px; /* Adjusted as per Admin.css */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem; /* Adjusted as per Admin.css */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form View Styles (No major layout changes, just color variables) */
+.citas-module-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.citas-module-form-header-left,
+.citas-module-form-header-right {
+  display: flex;
+  gap: 10px;
+}
+
+.citas-module-form-title {
+  font-size: 1.6em;
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 600;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.citas-module-general-error {
+  background-color: rgba(220, 53, 69, 0.1); /* Using direct rgba for danger */
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Two-column layout for form content */
+.citas-module-form-content-compact {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Default for two columns */
+  gap: 20px;
+  align-items: start;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* Separación adicional entre secciones consecutivas del formulario (cliente, servicios, etc.) */
+.citas-module-form-content-compact .citas-module-form-section-compact + .citas-module-form-section-compact {
+  margin-top: 20px; /* Mayor separación entre Cliente y Servicios */
+}
+
+/* Adjusted column widths for client/services vs. date/time */
+.citas-module-form-content-adjusted-columns {
+  grid-template-columns: 0.6fr 1.4fr; /* Columna izquierda más estrecha, derecha más ancha */
+  gap: 15px; /* Reducir el espacio entre columnas */
+  align-items: start;
+}
+
+.citas-module-form-section-compact {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  border-top: 2px solid var(--primary-light); /* Raya rosa homogénea */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.citas-module-form-section-compact h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.citas-module-form-icon {
+  color: var(--primary-color);
+}
+
+.citas-module-form-group {
+  margin-bottom: 15px;
+}
+
+.citas-module-form-group-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.citas-module-form-group-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  transition: var(--transition);
+}
+
+.citas-module-form-group-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.25);
+}
+
+.citas-module-form-group-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9em;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.citas-module-form-group-textarea:focus {
+  outline: none;
+  border-color: var(--info-color);
+  box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.2);
+}
+
+.citas-module-error-text {
+  color: var(--danger-color);
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+/* Client Search Section */
+.cliente-search-section {
+  position: relative;
+}
+
+.cliente-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+}
+
+.cliente-search-input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  transition: var(--transition);
+}
+
+.cliente-search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.25);
+}
+
+.cliente-search-input.error {
+  border-color: var(--danger-color);
+}
+
+.cliente-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-top: 5px;
+}
+
+.cliente-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.cliente-results-close {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.cliente-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cliente-item:hover {
+  background-color: var(--background-color);
+}
+
+.cliente-item-nombre {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.cliente-item-info {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+.cliente-item-info-row {
+  margin-bottom: 3px;
+}
+
+.no-cliente-results {
+  padding: 15px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.cliente-search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5; /* Below dropdown, above other content */
+}
+
+/* Services Grid */
+.citas-module-servicios-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* Tarjetas más pequeñas */
+  gap: 12px; /* Más separación entre servicios */
+  max-height: 180px; /* Ajustar altura máxima si es necesario */
+  overflow-y: auto;
+  padding-right: 5px;
+  margin-top: 16px; /* Bajar más el contenido de servicios dentro del cajón */
+}
+
+.citas-module-servicio-card-compact {
+  padding: 6px; /* Reducir padding */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  background-color: var(--background-color);
+}
+
+.citas-module-servicio-card-compact.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(232, 62, 140, 0.1); /* Using direct rgba for primary tint */
+}
+
+.citas-module-servicio-card-compact:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.citas-module-servicio-nombre-compact {
+  font-weight: 600;
+  font-size: 0.75em; /* Fuente más pequeña */
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+.citas-module-servicio-precio-compact {
+  font-size: 0.7em; /* Fuente más pequeña */
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+.citas-module-servicio-selected-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: var(--success-color);
+  font-size: 0.9em;
+}
+
+/* Calendar and Horarios Container */
+.citas-module-calendario-horarios-container-scroll {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Calendar and horarios side-by-side */
+  gap: 15px;
+  max-height: 450px; /* Limit height of the container */
+  overflow-y: auto; /* Add scroll if content exceeds height */
+  padding-right: 10px; /* Space for scrollbar */
+}
+
+.citas-module-mini-calendario {
+  flex-shrink: 0;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px; /* Añadir un poco de padding interno */
+}
+
+.citas-module-calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: var(--background-color);
+  padding: 8px;
+  border-radius: var(--border-radius);
+}
+
+.citas-module-nav-button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: var(--transition);
+}
+
+.citas-module-nav-button:hover {
+  background-color: var(--border-color);
+}
+
+.citas-module-mes-año {
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+
+.citas-module-calendario-grid {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allow calendar grid to grow */
+}
+
+.citas-module-dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.citas-module-dias-semana div {
+  padding: 5px 0;
+}
+
+.citas-module-dias-mes {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px; /* Espacio más reducido entre días */
+  flex-grow: 1;
+}
+
+.citas-module-dia-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.citas-module-dia-button {
+  width: 28px; /* Reducir tamaño */
+  height: 28px; /* Reducir tamaño */
+  border: none;
+  background: var(--card-bg);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.75rem; /* Fuente más pequeña */
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.citas-module-dia-button:hover:not(.disabled):not(.selected) {
+  background-color: var(--border-color);
+}
+
+.citas-module-dia-button.selected {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.citas-module-dia-button.disabled {
+  background-color: var(--background-color);
+  color: var(--secondary-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.citas-module-horarios-disponibles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.citas-module-horarios-disponibles h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  color: var(--text-color);
+}
+
+.citas-module-horarios-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Bloques de horario más grandes */
+  gap: 10px; /* Espacio entre bloques */
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-light);
+  border-radius: var(--border-radius);
+  background: rgba(232, 62, 140, 0.02); /* Using direct rgba for primary tint */
+}
+
+.citas-module-horario-option-compact {
+  padding: 12px 8px; /* Aumentar padding para hacer el bloque más grande */
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--card-bg);
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em; /* Aumentar tamaño de fuente */
+  font-weight: 700;
+  transition: var(--transition);
+  color: var(--text-color);
+  position: relative;
+  box-shadow: var(--shadow);
+  min-height: 45px; /* Asegurar altura suficiente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.citas-module-horario-option-compact:hover:not(.ocupado) {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.citas-module-horario-option-compact.selected {
+  background-color: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.citas-module-horario-option-compact.ocupado {
+  background-color: var(--danger-color);
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.7;
+  border-color: var(--danger-color);
+}
+
+/* Estilos para el mensaje "No hay horarios disponibles" */
+.citas-module-no-horarios-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px; /* Altura mínima para que se vea como un bloque */
+  background-color: var(--background-color);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95em;
+}
+
+.citas-module-no-horarios-icon {
+  font-size: 3em; /* Tamaño del icono */
+  color: var(--secondary-light);
+  margin-bottom: 10px;
+}
+
+.citas-module-no-horarios-text-large {
+  font-size: 1.1em; /* Fuente más grande para el mensaje */
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Observations Section */
+.citas-module-observaciones-section {
+  grid-column: 1 / -1; /* Asegura que ocupe todo el ancho */
+  margin-top: 20px; /* Espacio arriba */
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--primary-light); /* Raya rosa */
+}
+
+/* Full width sections (observations and summary) */
+.full-width-section {
+  grid-column: 1 / -1; /* Spans all columns in the parent grid */
+}
+
+/* Summary Section */
+.citas-module-resumen-cita-compact {
+  grid-column: 1 / -1; /* Asegura que ocupe todo el ancho */
+  background: rgba(232, 62, 140, 0.05); /* Using direct rgba for primary tint */
+  border: 1px solid var(--primary-light);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-top: 20px; /* Espacio arriba */
+}
+
+.citas-module-resumen-items .citas-module-resumen-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--border-color);
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.citas-module-resumen-items .citas-module-resumen-item:last-child {
+  border-bottom: none;
+}
+
+.citas-module-resumen-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-weight: 600;
+  font-size: 1.1em;
+  border-top: 1px solid var(--border-color);
+  margin-top: 10px;
+  color: var(--text-color);
+}
+
+/* Table Styles (for Citas View) */
+.citas-module-table-container {
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--card-bg); /* Adjusted as per Admin.css */
+  margin: 0; /* Adjusted as per Admin.css */
+  border-radius: 0 0 12px 12px; /* Adjusted as per Admin.css */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* Adjusted as per Admin.css */
+}
+
+.citas-module-admin-table th,
+.citas-module-admin-table td {
+  padding: 1rem 1.5rem; /* Adjusted as per Admin.css */
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.citas-module-admin-table th {
+  background-color: rgba(108, 117, 125, 0.05); /* Adjusted as per Admin.css */
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+}
+
+.citas-module-admin-table th:hover {
+  background-color: rgba(108, 117, 125, 0.1); /* Adjusted as per Admin.css */
+}
+
+.citas-module-sort-icon {
+  margin-left: 0.5rem; /* Adjusted as per Admin.css */
+  font-size: 0.8rem; /* Adjusted as per Admin.css */
+  color: var(--secondary-light);
+  transition: var(--transition);
+}
+
+.citas-module-sort-icon.active {
+  color: var(--primary-color);
+}
+
+.citas-module-service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-service-name {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.875rem; /* Adjusted as per Novedades.css */
+}
+
+.citas-module-service-description {
+  font-size: 0.75rem; /* Adjusted as per Novedades.css */
+  color: var(--text-muted);
+}
+
+.citas-module-status-badge {
+  display: inline-block; /* Adjusted as per Admin.css */
+  padding: 0.25rem 0.75rem; /* Adjusted as per Admin.css */
+  border-radius: 50px; /* Adjusted as per Admin.css */
+  font-size: 0.8rem; /* Adjusted as per Admin.css */
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+  min-width: 60px; /* Adjusted as per Admin.css */
+  text-align: center; /* Adjusted as per Admin.css */
+}
+
+.citas-module-status-badge.tardanza {
+  background-color: rgba(255, 193, 7, 0.1); /* Using direct rgba for warning */
+  color: #856404; /* Specific dark yellow for text */
+}
+
+.citas-module-status-badge.normal {
+  background-color: rgba(40, 167, 69, 0.1); /* Using direct rgba for success */
+  color: var(--success-color);
+}
+
+.citas-module-status-badge.anulada {
+  background-color: rgba(220, 53, 69, 0.1); /* Using direct rgba for danger */
+  color: var(--danger-color);
+}
+
+.citas-module-action-buttons {
+  display: flex;
+  gap: 0.5rem; /* Adjusted as per Admin.css */
+}
+
+.citas-module-action-button {
+  display: flex; /* Adjusted as per Admin.css */
+  align-items: center; /* Adjusted as per Admin.css */
+  justify-content: center; /* Adjusted as per Admin.css */
+  width: 32px; /* Adjusted as per Admin.css */
+  height: 32px; /* Adjusted as per Admin.css */
+  border-radius: 50%; /* Adjusted as per Admin.css */
+  border: none; /* Adjusted as per Admin.css */
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9rem; /* Adjusted as per Admin.css */
+}
+
+.citas-module-action-button.view {
+  background-color: rgba(40, 167, 69, 0.1); /* Adjusted as per Admin.css */
+  color: var(--success-color);
+}
+
+.citas-module-action-button.view:hover {
+  background-color: var(--success-color); /* Adjusted as per Admin.css */
+  color: white;
+}
+
+.citas-module-action-button.edit {
+  background-color: rgba(23, 162, 184, 0.1); /* Adjusted as per Admin.css */
+  color: var(--info-color);
+}
+
+.citas-module-action-button.edit:hover {
+  background-color: var(--info-color); /* Adjusted as per Admin.css */
+  color: white;
+}
+
+.citas-module-action-button.delete {
+  background-color: rgba(220, 53, 69, 0.1); /* Adjusted as per Admin.css */
+  color: var(--danger-color);
+}
+
+.citas-module-action-button.delete:hover {
+  background-color: var(--danger-color); /* Adjusted as per Admin.css */
+  color: white;
+}
+
+.citas-module-no-data {
+  text-align: center;
+  padding: 2rem !important; /* Adjusted as per Admin.css */
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Detail View Styles (No major layout changes, just color variables) */
+.citas-module-detail-view-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.citas-module-detail-section {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.citas-module-detail-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.citas-module-detail-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+
+.citas-module-detail-info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.citas-module-detail-label {
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.9em;
+  margin-bottom: 3px;
+}
+
+.citas-module-detail-value {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 1em;
+}
+
+.citas-module-servicios-detalle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.citas-module-servicio-detalle-card {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.citas-module-servicio-detalle-nombre {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.95em;
+}
+
+.citas-module-servicio-detalle-duracion {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  margin-left: 5px;
+}
+
+.citas-module-servicio-detalle-precio {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.95em;
+}
+
+.citas-module-total-detalle-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+.citas-module-total-detalle-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.citas-module-observaciones-detalle-content {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  font-size: 0.95em;
+  color: var(--text-color);
+  line-height: 1.6;
+  white-space: pre-wrap; /* Preserves whitespace and line breaks */
+}
+
+/* Edit View Specific Styles (No major layout changes, just color variables) */
+.citas-module-finalized-notice {
+  background-color: rgba(40, 167, 69, 0.1); /* Using direct rgba for success */
+  color: #155724; /* Specific dark green for text */
+  border: 1px solid var(--success-color);
+  border-radius: var(--border-radius);
+  padding: 10px 15px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9em;
+}
+
+.citas-module-finalized-notice .citas-module-notice-icon {
+  font-size: 1.2em;
+  color: var(--success-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .citas-module-admin-container {
+    padding: 0.5rem !important;
+  }
+
+  .citas-module-admin-content-wrapper {
+    margin: 0.5rem;
+  }
+
+  .citas-module-calendario-horarios-container-scroll {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .citas-module-manicuristas-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+  }
+
+  .citas-module-disponibilidad-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .citas-module-admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .citas-module-admin-filters {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .citas-module-search-container {
+    min-width: auto;
+  }
+
+  .citas-module-manicuristas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .citas-module-disponibilidad-grid {
+    grid-template-columns: 1fr;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+
+  .citas-module-form-content-compact,
+  .citas-module-form-content-adjusted-columns {
+    grid-template-columns: 1fr; /* Stack columns on small screens */
+  }
+
+  .citas-module-calendario-horarios-container-scroll {
+    grid-template-columns: 1fr; /* Stack calendar and horarios on small screens */
+    max-height: none; /* Remove max-height for better flow */
+    overflow-y: visible; /* Remove scroll */
+    padding-right: 0;
+  }
+
+  .citas-module-form-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .citas-module-form-header-left,
+  .citas-module-form-header-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .citas-module-form-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .citas-module-detail-view-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .citas-module-servicios-detalle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .citas-module-servicios-grid-compact {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Ajuste para móviles */
+  }
+  .citas-module-horarios-grid-compact {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Ajuste para móviles */
+  }
+
+  .citas-module-admin-table {
+    font-size: 0.75rem;
+  }
+
+  .citas-module-admin-table th,
+  .citas-module-admin-table td {
+    padding: 0.5rem;
+  }
+
+  .citas-module-action-buttons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .citas-module-action-button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .citas-module-modal-container {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  .citas-module-modal-footer {
+    flex-direction: column;
+  }
+
+  .citas-module-form-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+  }
+
+  .citas-module-form-content {
+    margin: 0 0.5rem 0.5rem 0.5rem;
+  }
+
+  .citas-module-form-header-left,
+  .citas-module-form-header-right {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .citas-module-manicuristas-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+
+  .citas-module-admin-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .citas-module-manicurista-content {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .citas-module-manicurista-avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+  }
+
+  .citas-module-manicurista-nombre {
+    font-size: 1.1rem;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== ESTILOS PARA VISTA DE DISPONIBILIDAD ===== */
+
+.citas-module-disponibilidad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1rem 1.5rem 1.5rem; /* alineado con el header/filtros */
+}
+
+/* Cuando el sidebar está colapsado y hay más espacio, mostrar 4 columnas */
+@media (min-width: 1280px) {
+  .main-content:not(.sidebar-expanded) .citas-module-disponibilidad-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.citas-module-disponibilidad-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.citas-module-disponibilidad-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.citas-module-disponibilidad-content {
+  padding: 1rem;
+}
+
+.citas-module-disponibilidad-content .citas-module-manicurista-avatar {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+}
+
+.citas-module-disponibilidad-content .citas-module-manicurista-nombre {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.citas-module-disponibilidad-content .citas-module-manicurista-especialidad {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.citas-module-horarios-section {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.citas-module-horarios-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.citas-module-horarios-title.ocupados {
+  color: var(--danger-color);
+}
+
+.citas-module-horarios-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.citas-module-horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.4rem;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.citas-module-horario-disponible-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem;
+  background: var(--success-color);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.citas-module-horario-disponible-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.citas-module-horario-disponible {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.citas-module-horario-duracion {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+.citas-module-horario-ocupado-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem;
+  background: var(--danger-color);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.citas-module-horario-ocupado {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.citas-module-horario-estado {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+.citas-module-no-horarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: var(--secondary-color);
+  font-style: italic;
+  font-size: 0.85rem;
+  grid-column: 1 / -1;
+}
+
+.citas-module-no-horarios svg {
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+.citas-module-mas-horarios {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.citas-module-mas-horarios:hover {
+  text-decoration: underline;
+}
+
+.citas-module-novedades-section {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid var(--warning-color);
+  border-radius: var(--border-radius);
+}
+
+.citas-module-novedades-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--warning-color);
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.citas-module-novedades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.citas-module-novedad-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.citas-module-novedad-tipo {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+.citas-module-novedad-hora {
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+}
+
+.citas-module-mas-novedades {
+  color: var(--warning-color);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+}
+
+.citas-module-mas-novedades:hover {
+  text-decoration: underline;
+}
+
+/* ===== ESTILOS PARA CITAS PROGRAMADAS ===== */
+
+.citas-module-citas-section {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(23, 162, 184, 0.1);
+  border: 1px solid var(--info-color);
+  border-radius: var(--border-radius);
+}
+
+.citas-module-citas-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--info-color);
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.citas-module-citas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.citas-module-cita-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.citas-module-cita-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.citas-module-cita-hora {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+.citas-module-cita-estado {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.citas-module-cita-estado.pendiente {
+  background: rgba(255, 193, 7, 0.2);
+  color: #856404;
+}
+
+.citas-module-cita-estado.iniciada {
+  background: rgba(23, 162, 184, 0.2);
+  color: #0c5460;
+}
+
+.citas-module-cita-estado.finalizada {
+  background: rgba(108, 117, 125, 0.2);
+  color: #495057;
+}
+
+.citas-module-cita-estado.realizada {
+  background: rgba(40, 167, 69, 0.2);
+  color: #155724;
+}
+
+.citas-module-cita-estado.cancelada {
+  background: rgba(220, 53, 69, 0.2);
+  color: #721c24;
+}
+
+.citas-module-cita-cliente {
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.citas-module-mas-citas {
+  color: var(--info-color);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+}
+
+.citas-module-mas-citas:hover {
+  text-decoration: underline;
+}
+
+/* ===== ESTILOS PARA RESUMEN ===== */
+
+.citas-module-resumen-section {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.citas-module-resumen-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.citas-module-resumen-item:last-child {
+  margin-bottom: 0;
+}
+
+.citas-module-resumen-label {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.citas-module-resumen-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.citas-module-resumen-value.disponible {
+  background: rgba(40, 167, 69, 0.2);
+  color: #155724;
+}
+
+.citas-module-resumen-value.programadas {
+  background: rgba(23, 162, 184, 0.2);
+  color: #0c5460;
+}
+
+.citas-module-resumen-value.ocupados {
+  background: rgba(220, 53, 69, 0.2);
+  color: #721c24;
+}
+
+.citas-module-resumen-value.disponibilidad.alta {
+  background: rgba(40, 167, 69, 0.2);
+  color: #155724;
+}
+
+.citas-module-resumen-value.disponibilidad.media {
+  background: rgba(255, 193, 7, 0.2);
+  color: #856404;
+}
+
+.citas-module-resumen-value.disponibilidad.baja {
+  background: rgba(220, 53, 69, 0.2);
+  color: #721c24;
+}
+
+.citas-module-error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--danger-color);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid var(--danger-color);
+  border-radius: var(--border-radius);
+}
+
+.citas-module-date-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.citas-module-date-filter label {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.citas-module-date-input {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+
+.citas-module-date-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(232, 62, 140, 0.2);
+}

@@ -1,0 +1,550 @@
+.citasv2 { display: flex; flex-direction: column; gap: 12px; position: relative; }
+.citasv2 .citasv2-content { display: grid; grid-template-columns: 300px 1fr; gap: 12px; }
+.citasv2 .citasv2-content.single { grid-template-columns: 1fr; }
+.citasv2 .citasv2-sidebar { background: var(--card-bg, #fff); border-radius: 12px; padding: 10px; box-shadow: var(--shadow, 0 1px 3px rgba(0,0,0,0.06)); display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--border-color, #e5e7eb); margin-top: 12px; height: calc(100vh - 162px); }
+.citasv2 .citasv2-main { background: var(--card-bg, #fff); border-radius: 12px; padding: 10px; box-shadow: var(--shadow, 0 1px 3px rgba(0,0,0,0.06)); margin-top: 12px; height: calc(100vh - 162px); min-height: 520px; border: 1px solid var(--border-color, #e5e7eb); width: 100%; box-sizing: border-box; }
+/* En la vista 'Ver citas' (single), que el contenedor no sea una tarjeta alta */
+.citasv2 .citasv2-content.single .citasv2-main { 
+  background: transparent; 
+  border: none; 
+  box-shadow: none; 
+  padding: 0; 
+  margin-top: 0; 
+  height: auto; 
+  min-height: 0; 
+}
+
+.citasv2 .citasv2-toolbar { display: flex; align-items: center; justify-content: space-between; background: transparent; border-radius: 10px; padding: 0; box-shadow: none; }
+.citasv2 .citasv2-toolbar .left, .citasv2 .citasv2-toolbar .right { display: flex; align-items: center; gap: 8px; }
+.citasv2 .btn { border: 1px solid var(--border-color, #e5e7eb); background: #fafafa; color: var(--text-color, #111827); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+.citasv2 .btn.primary { background: var(--primary-color, #e83e8c); color: #fff; border-color: var(--primary-color, #e83e8c); }
+.citasv2 .btn.active { background: var(--primary-dark, #d63384); color: #fff; border-color: var(--primary-dark, #d63384); }
+.citasv2 .btn { background: #f5f6f8; }
+.citasv2 .view-switch { display: flex; gap: 0.5rem; }
+/* Botones estilo dashboard (icono + borde suave) */
+.citasv2 .view-switch .admin-button { padding: 0.5rem 0.9rem; min-width: auto; border: 1px solid var(--border-color); background: #fff; color: #6b7280; }
+.citasv2 .view-switch .admin-button.primary { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.citasv2 .view-switch .admin-button.secondary { background: #fff; color: #6b7280; }
+.citasv2 .date-label { font-weight: 600; color: #374151; display: flex; align-items: center; gap: 6px; text-transform: capitalize; }
+
+.citasv2 .mini-calendar .mini-calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.citasv2 .mini-calendar .mini-calendar-title { font-weight: 700; color: var(--text-color, #111827); text-transform: capitalize; }
+.citasv2 .mini-calendar .mini-calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.citasv2 .mini-calendar { margin-bottom: 12px; }
+.citasv2 .mini-calendar .dow { text-align: center; font-size: 12px; color: var(--text-muted, #6b7280); }
+.citasv2 .mini-calendar .mini-day { border: 1px solid var(--border-color, #e5e7eb); background: #fff; color: var(--text-color, #111827); border-radius: 8px; padding: 6px; text-align: center; cursor: pointer; }
+.citasv2 .mini-calendar .mini-day.today { border-color: var(--primary-color, #e83e8c); box-shadow: 0 0 0 2px rgba(232,62,140,0.15) inset; }
+.citasv2 .mini-calendar .mini-day.muted { color: #9ca3af; background: #f9fafb; }
+
+.citasv2 .manicuristas-list h4 { margin: 0 0 8px 0; color: #111827; }
+.citasv2 .manicuristas-list { margin-top: 6px; }
+.citasv2 .manicuristas-items { display: flex; flex-direction: column; gap: 8px; }
+.citasv2 .manicurista-item { display: grid; grid-template-columns: 18px 24px 1fr; align-items: center; gap: 8px; padding: 6px 8px; border-left: 4px solid transparent; background: #fafafa; border-radius: 8px; }
+.citasv2 .manicurista-item .icon { color: #6b7280; }
+.citasv2 .manicurista-item .name { color: #111827; }
+.citasv2 .booking-selector { display: flex; flex-direction: column; gap: 6px; }
+.citasv2 .booking-selector label { color: #374151; font-weight: 600; }
+.citasv2 .booking-selector select { border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px 8px; }
+
+.citasv2 .citasv2-grid.empty { display: grid; place-items: center; min-height: 480px; color: #6b7280; }
+.citasv2 .spinner { width: 28px; height: 28px; border: 3px solid #e5e7eb; border-top-color: #111827; border-radius: 50%; animation: spin 1s linear infinite; }
+.citasv2 .spinner.small { width: 28px; height: 28px; border-width: 3px; border-top-color: var(--primary-color, #e83e8c); }
+.loading-overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.12); z-index: 5000; }
+.loading-box { background: #fff; border: 1px solid var(--border-color,#e5e7eb); box-shadow: 0 10px 24px rgba(0,0,0,0.14); padding: 18px 26px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 12px; color: #374151; min-width: 280px; font-size: 1.05rem; font-weight: 600; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.citasv2 .citasv2-listado table { width: 100%; border-collapse: collapse; }
+.citasv2 .citasv2-listado th, .citasv2 .citasv2-listado td { text-align: left; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color, #e5e7eb); }
+.citasv2 .citasv2-listado th { color: var(--text-color, #212529); font-weight: 600; background: rgba(108, 117, 125, 0.05); position: relative; }
+.citasv2 .citasv2-listado thead { background: #fff; }
+.citasv2 .citasv2-listado th:hover { background: rgba(108, 117, 125, 0.1); }
+
+/* Alinear icono de filtro y texto del select */
+.citasv2 .admin-filters .filter-icon { left: 12px; pointer-events: none; z-index: 1; }
+.citasv2 .admin-filters .filter-select { padding-left: 2.8rem; background: #fff; }
+
+/* Ver Citas: que el contenedor de tabla no tenga tarjeta blanca */
+/* Igual que en Manicuristas: tarjeta blanca para la tabla */
+.citasv2 .citasv2-listado .table-container { background: transparent; box-shadow: none; border: none; border-radius: 0; overflow: visible; }
+/* Hacer que la tabla en listado respete el ancho y márgenes como admin-table */
+.citasv2 .citasv2-listado .admin-table { min-width: 800px; }
+.citasv2 .citasv2-listado { margin-top: 0; }
+.citasv2 .pagination { margin-top: 1.5rem; background: transparent !important; border: none !important; box-shadow: none !important; }
+/* Separación clara tabla vs paginación como en Manicuristas */
+.citasv2 .citasv2-listado + .pagination { margin-top: 1.5rem; }
+/* Quitar espacio entre filtros y la tabla en Ver citas */
+/* En Ver citas, tabla pegada al buscador (más específico que Admin.css) */
+.citasv2 .admin-content-wrapper .admin-filters { padding-bottom: 1.25rem !important; }
+
+/* Week grid */
+.citasv2 .week-grid { display: grid; grid-template-rows: auto 1fr; gap: 8px; height: 100%; --slot-h: 32px; }
+.citasv2 .week-grid-header { display: grid; grid-template-columns: 64px repeat(7, 1fr); gap: 6px; }
+.citasv2 .week-grid-header .day-col { background: #fafafa; border-radius: 8px; padding: 8px; text-align: center; color: #111827; font-weight: 600; }
+.citasv2 .week-grid-header .day-col.big-title { text-align: left; font-size: 18px; line-height: 1.2; padding: 10px 16px; min-width: 280px; background: #fff; }
+.citasv2 .week-grid-body { display: grid; grid-template-columns: 64px repeat(7, 1fr); gap: 6px; overflow-y: auto; height: 100%; align-items: start; }
+.citasv2 .week-grid.day .week-grid-body { height: 100%; }
+.citasv2 .week-grid.day .week-grid-body { height: calc(100% - 8px); }
+.citasv2 .time-col-header { }
+.citasv2 .time-col { display: grid; grid-auto-rows: var(--slot-h); }
+.citasv2 .time-label { color: var(--text-muted, #6b7280); font-size: 11px; display: flex; align-items: center; justify-content: flex-end; padding-right: 4px; }
+.citasv2 .week-grid.week .day-col { background: #fff; }
+.citasv2 .week-grid-body .day-col { background: #fff; border: 1px solid #f1f5f9; border-radius: 8px; min-height: 100%; padding: 0; position: relative; }
+.citasv2 .week-grid.week .hour-row { background: rgba(0,0,0,0.02); }
+.citasv2 .week-grid.week .time-slot:hover { background: rgba(232, 62, 140, 0.06); }
+.citasv2 .day-slots { position: relative; height: 100%; }
+.citasv2 .week-grid.day .week-grid-body { grid-template-columns: 64px 1fr; }
+.citasv2 .week-grid.day .hour-row { background: rgba(0,0,0,0.03); }
+.citasv2 .week-grid.day .hour-row.full { border-top: 2px solid #ffffff; background: rgba(0,0,0,0.035); }
+.citasv2 .week-grid.day .hour-row.half { border-top: 1px solid #ffffff; background: rgba(0,0,0,0.02); }
+.citasv2 .week-grid.day .time-col .time-label { border-top: 1px solid #ffffff; background: rgba(0,0,0,0.01); }
+.citasv2 .week-grid.day .time-col .time-label:nth-child(odd) { border-top-width: 2px; background: rgba(0,0,0,0.02); }
+.citasv2 .week-grid.day .day-col { background: #fff; border-color: #e5e7eb; }
+.citasv2 .week-grid.day .week-grid-body { overflow-y: auto; overflow-x: hidden; }
+.citasv2 .week-grid.day { height: 100%; }
+.citasv2 .week-grid.day .day-col, .citasv2 .week-grid.day .time-col { height: auto; }
+.citasv2 .citasv2-main { overflow: hidden; }
+.citasv2 .hour-row { position: absolute; left: 0; right: 0; height: var(--slot-h); border-top: 1px solid #eef2f7; }
+.citasv2 .hour-row:first-child { border-top: none; }
+.citasv2 .hour-row.full { background: rgba(0,0,0,0.025); }
+.citasv2 .hour-row.half { background: rgba(0,0,0,0.015); }
+.citasv2 .week-grid.week .day-col::before { content: ""; position: absolute; inset: 0; border-radius: 8px; box-shadow: inset 0 0 0 1px #eaeef3; pointer-events: none; }
+.citasv2 .week-grid.week .day-col.past { background: #f3f4f6; opacity: 0.9; }
+.citasv2 .week-grid.week .day-col.today .day-slots::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: var(--now-pct, 0);
+  background: rgba(0,0,0,0.12);
+  pointer-events: none;
+}
+.citasv2 .time-slot { position: absolute; left: 0; right: 0; height: var(--slot-h); background: transparent; border: none; cursor: pointer; }
+.citasv2 .time-slot:hover { background: rgba(232, 62, 140, 0.06); }
+.citasv2 .events-layer { position: absolute; inset: 0 6px 6px 6px; pointer-events: none; }
+.citasv2 .now-line { position: absolute; left: 6px; right: 6px; height: 2px; background: #ef4444; top: calc(((var(--now-min, 0) - 480) / 720) * 100%); box-shadow: 0 0 0 1px rgba(239,68,68,0.2); }
+
+/* Sombras en el pasado de la vista Día para indicar no disponible */
+.citasv2 .week-grid.day .day-slots::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--now-pct, 0);
+  background: rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+/* Fullscreen views */
+.citasv2 .fullscreen-view { position: fixed; inset: 0; background: #fff; z-index: 60; overflow: auto; padding: 16px; }
+/* Nueva Cita: vista integrada al layout, no como overlay */
+.citasv2 .fullscreen-view.new-appointment {
+  position: relative; /* sacar del overlay para respetar sidebar */
+  inset: auto;
+  z-index: auto;
+  background: #f8f9fb;
+  padding: 0; /* los wrappers internos ya manejan padding */
+}
+/* Secciones del formulario - elementos hermanos independientes como en Compras */
+.citasv2 .form-section {
+  background: #fff;
+  border: 1px solid var(--border-color,#e5e7eb);
+  border-radius: 12px;
+  box-shadow: var(--shadow,0 1px 3px rgba(0,0,0,0.06));
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.citasv2 .form-section.left {
+  width: calc(35% - 10px);
+  margin-right: 20px;
+}
+
+.citasv2 .form-section.right {
+  width: calc(65% - 10px);
+  margin-left: 0;
+}
+
+/* Botón de seleccionar servicio - mismo tamaño que "Agregar Insumo" en Compras */
+.citasv2 .form-section .admin-button.primary {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  height: 36px !important;
+  width: 180px !important;
+  max-width: 180px !important;
+  min-width: 180px !important;
+  display: inline-block !important;
+}
+
+.citasv2 .section-header {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.citasv2 .section-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.citasv2 .section-header h3::before {
+  content: '';
+  width: 3px;
+  height: 20px;
+  background: var(--primary-color,#e83e8c);
+  border-radius: 2px;
+}
+
+/* Grupos de formulario */
+.citasv2 .form-group {
+  margin-bottom: 16px;
+}
+
+.citasv2 .form-group label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.citasv2 .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Estado vacío para servicios */
+.citasv2 .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+}
+
+.citasv2 .empty-state .empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.citasv2 .empty-state p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.citasv2 .empty-state p:first-of-type {
+  font-weight: 600;
+  color: #374151;
+}
+.citasv2 .new-appt-grid .section { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+.citasv2 .new-appt-grid .section-title { font-weight: 700; color: #111827; border-left: 3px solid var(--primary-color,#e83e8c); padding-left: 8px; }
+/* Inputs y elementos del formulario */
+.citasv2 .form-section input, 
+.citasv2 .form-section select, 
+.citasv2 .form-section textarea { 
+  width: 100%; 
+  border: 1px solid var(--border-color,#e5e7eb); 
+  border-radius: 8px; 
+  padding: 10px 12px; 
+  font-size: 14px; 
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.citasv2 .form-section input:focus, 
+.citasv2 .form-section select:focus, 
+.citasv2 .form-section textarea:focus { 
+  outline: none; 
+  border-color: var(--primary-color,#e83e8c); 
+  box-shadow: 0 0 0 3px rgba(232,62,140,0.1); 
+}
+
+.citasv2 .cliente-search { 
+  position: relative; 
+}
+
+.citasv2 .cliente-search .search-icon { 
+  position: absolute; 
+  left: 10px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  color: #9ca3af; 
+}
+
+.citasv2 .cliente-search input { 
+  padding-left: 36px; 
+}
+/* Cliente search results list - nuevo diseño */
+.citasv2 .cliente-results-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow, 0 1px 3px rgba(0,0,0,0.06));
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.citasv2 .cliente-result-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.2s ease;
+}
+
+.citasv2 .cliente-result-item:last-child {
+  border-bottom: none;
+}
+
+.citasv2 .cliente-result-item:hover {
+  background: #f9fafb;
+}
+
+.citasv2 .cliente-result-item.active {
+  background: var(--primary-light, #fde7f1);
+  color: var(--primary-color, #e83e8c);
+  font-weight: 600;
+}
+
+/* Ficha compacta de cliente seleccionado */
+.citasv2 .cliente-card { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  background: #fff; 
+  border: 1px solid var(--border-color); 
+  border-radius: 12px; 
+  padding: 10px; 
+}
+
+.citasv2 .cliente-card .avatar { 
+  width: 36px; 
+  height: 36px; 
+  border-radius: 50%; 
+  background: var(--primary-light,#fde7f1); 
+  color: var(--primary-color,#e83e8c); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: 700; 
+}
+
+.citasv2 .cliente-card .meta { 
+  display: flex; 
+  flex-direction: column; 
+  line-height: 1.2; 
+}
+
+.citasv2 .cliente-card .name { 
+  font-weight: 700; 
+  color: #111827; 
+}
+
+.citasv2 .cliente-card .doc { 
+  color: #6b7280; 
+  font-size: 12px; 
+}
+
+.citasv2 .cliente-card .link { 
+  margin-left: auto; 
+  background: transparent; 
+  border: none; 
+  color: var(--primary-color); 
+  cursor: pointer; 
+  font-weight: 600; 
+}
+
+/* Modal de servicios - estilo como insumos en Compras */
+.servicios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; padding: 16px; }
+.servicio-card { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s; }
+.servicio-card:hover { border-color: var(--primary-color); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.servicio-info { }
+.servicio-nombre { font-weight: 600; color: #111827; margin-bottom: 4px; }
+.servicio-duracion { color: #6b7280; font-size: 12px; margin-bottom: 2px; }
+.servicio-precio { color: var(--primary-color); font-weight: 600; font-size: 12px; }
+
+/* Agregar servicios */
+.add-service-row { display:grid; grid-template-columns: 2fr 2fr 1.5fr auto; gap:10px; align-items:end; }
+.add-service-row .field label { font-weight:600; margin-bottom:6px; display:block; }
+.add-service-row .field.actions { display:flex; }
+.services-table-container { margin-top: 20px; background: #fff; border: 1px solid var(--border-color,#e5e7eb); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.services-table { width: 100%; border-collapse: collapse; }
+.services-table thead { background: #f8f9fa; }
+.services-table th { padding: 12px; text-align: left; font-weight: 600; color: #374151; border-bottom: 1px solid #e5e7eb; }
+.services-table td { padding: 12px; border-bottom: 1px solid #f3f4f6; }
+.services-table tbody tr:hover { background: #f9fafb; }
+.services-table tfoot { background: #f8f9fa; font-weight: 600; }
+.services-table tfoot td { border-top: 2px solid #e5e7eb; }
+.services-table select { width: 100%; padding: 6px 8px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 13px; }
+.services-table .action-button.delete.small { padding: 6px 8px; font-size: 12px; }
+
+/* Responsivo: apilar columnas cuando el ancho es menor */
+@media (max-width: 1200px) {
+  .citasv2 .form-section.left,
+  .citasv2 .form-section.right {
+    width: 100%;
+    display: block;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+.citasv2 .event-block { position: absolute; right: 6px; left: 6px; color: #111827; border-radius: 8px; padding: 4px 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); cursor: pointer; border: 1px solid rgba(0,0,0,0.05); pointer-events: auto; overflow: hidden; }
+.citasv2 .event-chip { display: inline-flex; align-items: center; gap: 6px; background: transparent; padding: 2px 4px; border-radius: 999px; }
+.citasv2 .event-chip .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+.citasv2 .event-chip .chip-time { font-weight: 700; font-size: 12px; }
+.citasv2 .event-chip .chip-sep { opacity: 0.8; }
+.citasv2 .event-chip .chip-text { font-size: 12px; }
+
+/* Day list */
+.citasv2 .day-list { display: flex; flex-direction: column; gap: 8px; }
+.citasv2 .availability-strip { background: #fff; border: 1px dashed #e5e7eb; border-radius: 8px; padding: 8px; }
+.citasv2 .availability-strip .strip-title { color: #374151; font-weight: 600; margin-bottom: 6px; }
+.citasv2 .availability-strip .slots { display: flex; flex-wrap: wrap; gap: 6px; }
+.citasv2 .availability-strip .slot { font-size: 12px; padding: 6px 8px; border-radius: 999px; }
+.citasv2 .availability-strip .slot.available { background: #10b981; color: #fff; border: none; cursor: pointer; }
+.citasv2 .availability-strip .slot.busy { background: #ef4444; color: #fff; }
+.citasv2 .day-list .event-row { display: grid; grid-template-columns: 80px 1fr auto; align-items: center; gap: 8px; background: #fafafa; border-radius: 8px; padding: 8px; }
+.citasv2 .day-list .event-row .time { color: #374151; font-weight: 600; }
+.citasv2 .day-list .event-row .title { font-weight: 700; color: #111827; }
+.citasv2 .day-list .event-row .sub { color: #4b5563; font-size: 12px; }
+.citasv2 .day-list .event-row .tag { color: #fff; padding: 4px 8px; border-radius: 999px; font-size: 12px; }
+.citasv2 .no-events { color: #6b7280; text-align: center; padding: 24px 0; }
+
+/* Week box layout (cajones) */
+.citasv2 .week-box-grid { display: grid; grid-template-rows: auto 1fr; gap: 10px; height: 100%; }
+.citasv2 .week-box-header { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+.citasv2 .week-box-headcol { background: #fff; border-radius: 8px; padding: 10px; text-align: center; font-weight: 700; color: #111827; border: 1px solid #e5e7eb; }
+.citasv2 .week-box-body { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+.citasv2 .week-box-cell { background: #eef1f6; border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+.citasv2 .week-box-date { display: flex; align-items: center; justify-content: space-between; font-weight: 700; color: #111827; }
+.citasv2 .week-box-date .mini-add { border: 1px solid #e5e7eb; background: #fff; border-radius: 6px; width: 22px; height: 22px; cursor: pointer; }
+.citasv2 .week-box-events { display: flex; flex-direction: column; gap: 6px; }
+.citasv2 .week-box-event { display: grid; grid-template-columns: 10px 60px 1fr; align-items: center; gap: 8px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px 8px; cursor: pointer; color: #111827; }
+.citasv2 .week-box-event .time { font-weight: 700; }
+.citasv2 .week-box-event .title { color: #374151; }
+.citasv2 .week-box-event .dot { width: 10px; height: 10px; border-radius: 999px; }
+.citasv2 .week-box-cell .no-events { color: #6b7280; text-align: center; padding: 10px 0; }
+
+/* Modal base */
+.citasv2 .modal-overlay { 
+  position: fixed; 
+  inset: 0; 
+  background: rgba(0,0,0,0.32); 
+  display: grid; 
+  place-items: center; 
+  z-index: 10000; 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.citasv2 .modal { width: min(920px, 92vw); background: var(--card-bg, #fff); border-radius: 12px; box-shadow: var(--shadow-lg, 0 10px 30px rgba(0,0,0,0.2)); overflow: hidden; border: 1px solid var(--border-color, #e5e7eb); }
+.citasv2 .modal-container.wide { width: min(1100px, 95vw); background: var(--card-bg, #fff); border-radius: 12px; box-shadow: var(--shadow-lg, 0 10px 30px rgba(0,0,0,0.2)); overflow: hidden; border: 1px solid var(--border-color, #e5e7eb); }
+.citasv2 .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; }
+.citasv2 .modal-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; }
+.citasv2 .modal-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px; border-top: 1px solid #f3f4f6; }
+.citasv2 .icon-btn { background: transparent; border: none; cursor: pointer; color: #6b7280; }
+.citasv2 .admin-card { background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 12px; margin-top: 12px; }
+
+/* New appointment form */
+.citasv2 .form-row { display: flex; flex-direction: column; gap: 8px; }
+.citasv2 .form-row.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.citasv2 .form-row label { color: #374151; font-weight: 600; }
+.citasv2 input[type="date"], .citasv2 select, .citasv2 input[type="text"], .citasv2 textarea { width: 100%; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px; }
+.citasv2 .cliente-search { position: relative; display: flex; align-items: center; }
+.citasv2 .cliente-search .search-icon { position: absolute; left: 10px; color: #9ca3af; }
+.citasv2 .cliente-search input { padding-left: 30px; }
+.citasv2 .cliente-results { display: flex; flex-wrap: wrap; gap: 6px; }
+.citasv2 .pill { border: 1px solid #e5e7eb; background: #fafafa; border-radius: 999px; padding: 6px 10px; cursor: pointer; }
+.citasv2 .pill.active { background: #111827; border-color: #111827; color: #fff; }
+.citasv2 .servicios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+.citasv2 .serv-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px; cursor: pointer; }
+.citasv2 .serv-card.selected { border-color: var(--primary-color, #e83e8c); background: rgba(232, 62, 140, 0.05); }
+.citasv2 .serv-card .name { font-weight: 700; }
+.citasv2 .serv-card .meta { color: #4b5563; font-size: 12px; }
+.citasv2 .help { color: #6b7280; font-size: 12px; }
+
+/* Selectable lists for manicuristas/servicios inside modal */
+.citasv2 .manicuristas-select-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+.citasv2 .manicurista-item.selectable { display: grid; grid-template-columns: 24px 1fr; align-items: center; gap: 8px; padding: 8px; border: 1px solid #e5e7eb; border-left: 4px solid transparent; background: #fafafa; border-radius: 8px; cursor: pointer; }
+.citasv2 .manicurista-item.selectable.active { background: rgba(232, 62, 140, 0.06); border-color: var(--primary-color, #e83e8c); }
+.citasv2 .manicurista-item.selectable .meta { color: #6b7280; font-size: 12px; }
+
+/* Detail modal */
+.citasv2 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.citasv2 .detail-grid .label { color: #6b7280; font-size: 12px; }
+.citasv2 .detail-grid .value { color: #111827; font-weight: 600; }
+
+/* Month grid */
+.citasv2 .month-grid { display: grid; grid-template-rows: auto 1fr; gap: 8px; height: 100%; width: 100%; box-sizing: border-box; }
+.citasv2 .month-grid-header { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.citasv2 .month-dow { text-align: center; color: #6b7280; font-weight: 600; }
+.citasv2 .month-grid-body { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-auto-rows: 1fr; align-content: stretch; gap: 6px; height: 100%; width: 100%; box-sizing: border-box; }
+.citasv2 .month-cell { border: 1px solid #f3f4f6; border-radius: 8px; padding: 6px; background: #fff; display: flex; flex-direction: column; gap: 4px; }
+.citasv2 .month-cell.past { background: #f3f4f6; opacity: 0.8; }
+.citasv2 .month-cell.muted { background: #fff; color: #9ca3af; }
+.citasv2 .month-cell.today { box-shadow: 0 0 0 2px rgba(232,62,140,0.18) inset; }
+.citasv2 .month-cell-top { display: flex; justify-content: space-between; align-items: center; }
+.citasv2 .month-date { font-weight: 700; }
+.citasv2 .month-add { border: 1px solid #e5e7eb; background: #fafafa; border-radius: 6px; width: 22px; height: 22px; line-height: 20px; text-align: center; cursor: pointer; }
+.citasv2 .month-add:hover { border-color: var(--primary-color,#e83e8c); color: var(--primary-color,#e83e8c); background: rgba(232,62,140,0.06); }
+.citasv2 .month-events { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+.citasv2 .month-event { display: flex; align-items: center; gap: 6px; padding: 3px 6px; border-radius: 6px; cursor: pointer; border: 1px solid rgba(0,0,0,0.04); }
+.citasv2 .month-event .dot { width: 8px; height: 8px; border-radius: 999px; }
+.citasv2 .month-event .txt { font-size: 12px; color: #111827; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.citasv2 .more { font-size: 12px; color: #6b7280; cursor: pointer; align-self: flex-start; padding: 2px 4px; border-radius: 4px; }
+.citasv2 .more:hover { color: var(--primary-color,#e83e8c); background: rgba(232,62,140,0.06); }
+
+/* Botón Ver citas en celda mensual */
+.citasv2 .month-view-btn {
+  border: 1px solid var(--border-color,#e5e7eb);
+  background: #fff;
+  color: #6b7280;
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.citasv2 .month-view-btn:hover {
+  border-color: var(--primary-color,#e83e8c);
+  color: var(--primary-color,#e83e8c);
+  background: rgba(232,62,140,0.06);
+}
+
+/* Acciones en la cabecera del día (junto al +) */
+.citasv2 .month-top-actions { display: flex; gap: 6px; align-items: center; }
+.citasv2 .month-top-actions .month-add { width: 22px; height: 22px; line-height: 20px; text-align: center; }
+
+/* Estilos para citas múltiples */
+.citasv2 .event-block.multiple-cita {
+  border-style: dashed !important;
+  border-width: 2px !important;
+  background: rgba(232, 62, 140, 0.15) !important;
+  box-shadow: 0 0 0 1px rgba(232, 62, 140, 0.2);
+}
+
+.citasv2 .event-block.multiple-cita .event-chip {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+.citasv2 .event-block.multiple-cita .chip-badge {
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-left: 4px;
+}
+
+

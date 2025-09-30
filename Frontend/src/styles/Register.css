@@ -1,0 +1,326 @@
+/* CSS específico para el registro */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.register-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.register-container {
+  width: 90%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.register-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.register-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.register-title .wine-text {
+  color: #e83e8c;
+  font-weight: 700;
+}
+
+.register-title .spa-text {
+  color: #6c757d;
+}
+
+.register-subtitle {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Formulario de registro */
+.register-form-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.register-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.register-input-container {
+  position: relative;
+}
+
+.register-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(108, 117, 125, 0.3);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.register-input:focus {
+  outline: none;
+  border-color: #e83e8c;
+  box-shadow: 0 0 0 2px rgba(232, 62, 140, 0.2);
+}
+
+.register-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.register-select {
+  width: 80px;
+  padding: 0.8rem;
+  border: 1px solid rgba(108, 117, 125, 0.3);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23e83e8c' d='M6 8.825L1.175 4 2.05 3.125 6 7.075 9.95 3.125 10.825 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+.register-input-flex {
+  flex: 1;
+}
+
+/* Dirección */
+.register-direccion {
+  grid-column: span 2;
+}
+
+.register-direccion-horizontal {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.register-direccion-separador {
+  font-weight: bold;
+  color: #6c757d;
+}
+
+.register-direccion-preview {
+  width: 100%;
+  margin-top: 0.5rem;
+  background-color: #f5f5f5;
+  color: #333;
+  font-style: italic;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+/* Contraseñas */
+.register-password-container {
+  position: relative;
+}
+
+.register-toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 2;
+}
+
+.register-password-strength {
+  margin-top: 0.5rem;
+}
+
+.register-strength-meter {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.register-strength-segment {
+  height: 4px;
+  flex: 1;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.register-strength-segment.active {
+  background-color: var(--strength-color, #e83e8c);
+}
+
+.register-strength-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Error */
+.register-error-text {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.register-error-input {
+  border-color: #e74c3c;
+}
+
+/* Botón de registro */
+.register-button-container {
+  grid-column: span 2;
+  margin-top: 1rem;
+}
+
+.register-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #e83e8c, #d63384);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+}
+
+.register-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(232, 62, 140, 0.4);
+}
+
+.register-button:active {
+  transform: translateY(-1px);
+}
+
+/* Login link */
+.register-login-link {
+  grid-column: span 2;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.register-login-link a {
+  color: #e83e8c;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.register-login-link a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #e83e8c;
+  transition: width 0.3s;
+}
+
+.register-login-link a:hover::after {
+  width: 100%;
+}
+
+/* Spinner */
+.register-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.register-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: register-spin 1s linear infinite;
+}
+
+@keyframes register-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .register-form-container {
+    grid-template-columns: 1fr;
+  }
+
+  .register-direccion {
+    grid-column: span 1;
+  }
+
+  .register-button-container,
+  .register-login-link {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-container {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 0;
+  }
+
+  .register-direccion-horizontal {
+    flex-wrap: wrap;
+  }
+}

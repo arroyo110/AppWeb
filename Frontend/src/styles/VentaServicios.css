@@ -1,0 +1,1870 @@
+/* ===== ESTILOS PARA MÓDULO DE VENTA SERVICIOS - BASADO EN CITAS ===== */
+
+/* Importar variables del CSS principal */
+:root {
+  --primary-color: #e83e8c;
+  --primary-dark: #d63384;
+  --primary-light: #f8bbd0;
+  --secondary-color: #6c757d;
+  --secondary-dark: #495057;
+  --secondary-light: #adb5bd;
+  --accent-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --background-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --border-color: #dee2e6;
+  --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+}
+
+/* ===== CONTENEDOR PRINCIPAL DE VENTAS - IGUAL A CITAS ===== */
+.ventas-module {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  background-color: var(--background-color);
+  font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+}
+
+.ventas-module .ventas-admin-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: auto;
+  min-height: calc(100vh - 80px);
+  background-color: var(--background-color);
+  transition: var(--transition);
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden;
+}
+
+/* ===== HEADER PRINCIPAL - IGUAL A CITAS ===== */
+.ventas-module .ventas-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 0 0;
+}
+
+.ventas-module .ventas-admin-title {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  font-weight: 700;
+  position: relative;
+  margin: 0;
+}
+
+.ventas-module .ventas-admin-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+  border-radius: 3px;
+}
+
+/* ===== BOTONES PRINCIPALES - IGUAL A CITAS ===== */
+.ventas-module .ventas-admin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+  font-size: 0.95rem;
+  min-width: 120px;
+}
+
+.ventas-module .ventas-admin-button.primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 10px rgba(232, 62, 140, 0.3);
+}
+
+.ventas-module .ventas-admin-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(232, 62, 140, 0.4);
+}
+
+.ventas-module .ventas-admin-button.secondary {
+  background-color: #f1f3f5;
+  color: var(--secondary-dark);
+  border: 1px solid var(--border-color);
+}
+
+.ventas-module .ventas-admin-button.secondary:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.ventas-module .ventas-admin-button.danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.ventas-module .ventas-admin-button.danger:hover {
+  background-color: #c82333;
+}
+
+.ventas-module .ventas-admin-button.success {
+  background: linear-gradient(135deg, var(--success-color), #1e7e34);
+  color: white;
+}
+
+.ventas-module .ventas-admin-button.success:hover {
+  background: linear-gradient(135deg, #1e7e34, #155724);
+  transform: translateY(-2px);
+}
+
+.ventas-module .ventas-admin-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ===== GRID DE MANICURISTAS - IGUAL A CITAS ===== */
+.ventas-module .ventas-manicuristas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.ventas-module .ventas-manicurista-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ventas-module .ventas-manicurista-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+}
+
+.ventas-module .ventas-manicurista-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(232, 62, 140, 0.15);
+  border-color: var(--primary-color);
+}
+
+.ventas-module .ventas-manicurista-header {
+  margin-bottom: 1.5rem;
+}
+
+.ventas-module .ventas-manicurista-avatar {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+}
+
+.ventas-module .ventas-manicurista-nombre {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 0.5rem 0;
+}
+
+.ventas-module .ventas-manicurista-especialidad {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.ventas-module .ventas-manicurista-actions {
+  margin-bottom: 1.5rem;
+}
+
+.ventas-module .ventas-btn-nueva-novedad {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ventas-module .ventas-btn-nueva-novedad:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(232, 62, 140, 0.4);
+}
+
+.ventas-module .ventas-btn-ver-novedades {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+.ventas-module .ventas-btn-ver-novedades:hover {
+  background: linear-gradient(135deg, var(--secondary-dark), #343a40);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* ===== CONTENEDOR PARA TABLA DE VENTAS - IGUAL A CITAS ===== */
+.ventas-module .ventas-admin-content-wrapper {
+  background: var(--card-bg);
+  border-radius: 12px;
+  margin: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* ===== FILTROS Y BÚSQUEDA - SIMPLIFICADO PARA LISTA DE VENTAS ===== */
+.ventas-module .ventas-admin-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+/* New class for simplified filters in list view */
+.ventas-module .ventas-admin-filters-simplified {
+  display: flex;
+  justify-content: flex-start; /* Align to start */
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ventas-module .ventas-search-container-extended {
+  position: relative;
+  flex: 1 1 800px;
+  max-width: none;
+  min-width: 300px;
+  width: 100%;
+}
+
+.ventas-module .ventas-search-container {
+  /* Para la vista de manicuristas */
+  position: relative;
+  flex: 1 1 800px;
+  min-width: 250px;
+  max-width: none;
+  width: 100%;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.ventas-module .ventas-search-container:focus-within {
+  border-color: #e83e8c;
+  box-shadow: 0 0 0 2px rgba(232, 62, 140, 0.2);
+}
+
+.ventas-module .ventas-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+  font-size: 1rem;
+  z-index: 2;
+}
+
+.ventas-module .ventas-search-input-extended {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--card-bg);
+  transition: var(--transition);
+  min-width: 300px;
+}
+
+.ventas-module .ventas-search-input {
+  /* Para la vista de manicuristas */
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #212529;
+  background: transparent;
+  transition: all 0.3s ease;
+  outline: none;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.ventas-module .ventas-search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+  outline: none;
+}
+
+.ventas-module .ventas-items-per-page {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.ventas-module .ventas-items-select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ventas-module .ventas-items-select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* ===== TABLA DE VENTAS - IGUAL A CITAS ===== */
+.ventas-module .ventas-table-container {
+  overflow-x: auto;
+  background: white;
+}
+
+.ventas-module .ventas-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ventas-module .ventas-admin-table thead {
+  background: rgba(108, 117, 125, 0.05);
+  color: var(--text-color);
+}
+
+.ventas-module .ventas-admin-table th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition);
+  position: relative;
+}
+
+.ventas-module .ventas-admin-table th:hover {
+  background: rgba(108, 117, 125, 0.1);
+}
+
+.ventas-module .ventas-sort-icon {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.ventas-module .ventas-sort-icon.active {
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+.ventas-module .ventas-admin-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.ventas-module .ventas-admin-table tbody tr:hover {
+  background: rgba(232, 62, 140, 0.02);
+}
+
+.ventas-module .ventas-admin-table td {
+  padding: 1rem 1.5rem;
+  vertical-align: top;
+}
+
+/* ===== INFORMACIÓN DE SERVICIOS EN TABLA - IGUAL A CITAS ===== */
+.ventas-module .ventas-service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ventas-module .ventas-service-name {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.ventas-module .ventas-service-description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ventas-module .price-cell {
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+/* ===== ESTADOS DE VENTAS - CON ESTADO EDITABLE ===== */
+.ventas-module .status-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  text-align: center;
+  min-width: 80px;
+  display: inline-block;
+}
+
+.ventas-module .status-badge.pendiente {
+  background: rgba(255, 193, 7, 0.2);
+  color: #856404;
+}
+
+.ventas-module .status-badge.pagada {
+  background: rgba(40, 167, 69, 0.15);
+  color: var(--success-color);
+}
+
+.ventas-module .status-badge.cancelada {
+  background: rgba(220, 53, 69, 0.15);
+  color: var(--danger-color);
+}
+
+/* ===== ESTADO CLICKEABLE - EDITABLE ===== */
+.ventas-module .estado-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .estado-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  transition: var(--transition);
+  border: none;
+  cursor: default;
+}
+
+.ventas-module .estado-badge.clickable {
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ventas-module .estado-badge.clickable:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ventas-module .estado-badge.pendiente {
+  background: rgba(255, 193, 7, 0.2);
+  color: #856404;
+}
+
+.ventas-module .estado-badge.pagada {
+  background: rgba(40, 167, 69, 0.15);
+  color: var(--success-color);
+}
+
+.ventas-module .estado-badge.cancelada {
+  background: rgba(220, 53, 69, 0.15);
+  color: var(--danger-color);
+}
+
+.ventas-module .estado-icon {
+  font-size: 0.8rem;
+}
+
+/* ===== BOTONES DE ACCIÓN EN TABLA - MEJORADOS ===== */
+.ventas-module .ventas-action-buttons-improved {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+.ventas-module .action-button-improved {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  color: inherit;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.ventas-module .action-button-improved::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ventas-module .action-button-improved:hover::before {
+  opacity: 1;
+}
+
+.ventas-module .action-button-improved:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.ventas-module .action-button-improved:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+.ventas-module .action-button-improved.view {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success-color);
+}
+
+.ventas-module .action-button-improved.view:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.ventas-module .action-button-improved.edit {
+  background-color: rgba(23, 162, 184, 0.1);
+  color: var(--info-color);
+}
+
+.ventas-module .action-button-improved.edit:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.ventas-module .action-button-improved.success {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success-color);
+}
+
+.ventas-module .action-button-improved.success:hover {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  border-color: rgba(40, 167, 69, 0.5);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+.ventas-module .action-button.delete.small {
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+  background: linear-gradient(135deg, var(--danger-color), #c82333);
+}
+
+/* ===== PAGINACIÓN - IGUAL A CITAS ===== */
+.ventas-module .ventas-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-top: 1px solid var(--border-color);
+}
+
+.ventas-module .ventas-pagination-button {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  min-width: 40px;
+  text-align: center;
+}
+
+.ventas-module .ventas-pagination-button:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  background: rgba(232, 62, 140, 0.05);
+  color: var(--primary-color);
+}
+
+.ventas-module .ventas-pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ventas-module .ventas-pagination-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0 1rem;
+}
+
+/* ===== MENSAJE SIN DATOS ===== */
+.ventas-module .ventas-no-data {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* ===== FORMULARIO - COMO CREAR CITAS ===== */
+.ventas-module .ventas-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.ventas-module .ventas-form-header-left,
+.ventas-module .ventas-form-header-right {
+  flex: 0 0 auto;
+}
+
+.ventas-module .ventas-form-title {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  position: relative;
+}
+
+.ventas-module .ventas-form-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+  border-radius: 3px;
+}
+
+.ventas-module .ventas-form-content-compact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ventas-module .ventas-form-section-compact {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  height: fit-content;
+}
+
+.ventas-module .ventas-form-section-compact h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.ventas-module .ventas-form-icon {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+/* ===== BÚSQUEDA DE CLIENTE - IGUAL A CITAS ===== */
+.ventas-module .cliente-search-section {
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 1rem;
+}
+
+.ventas-module .cliente-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--card-bg);
+  transition: var(--transition);
+}
+
+.ventas-module .cliente-search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+  outline: none;
+}
+
+.ventas-module .cliente-search-input.error {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+.ventas-module .cliente-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+  font-size: 1rem;
+  z-index: 2;
+}
+
+.ventas-module .cliente-results-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 10000;
+  max-height: 320px;
+  overflow-y: auto;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.ventas-module .cliente-results-header {
+  padding: 0.75rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: calc(var(--border-radius) - 2px) calc(var(--border-radius) - 2px) 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ventas-module .cliente-results-close {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.ventas-module .cliente-results-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.ventas-module .cliente-item {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ventas-module .cliente-item:last-child {
+  border-bottom: none;
+  border-radius: 0 0 calc(var(--border-radius) - 2px) calc(var(--border-radius) - 2px);
+}
+
+.ventas-module .cliente-item:hover {
+  background: rgba(232, 62, 140, 0.05);
+  border-left: 4px solid var(--primary-color);
+  padding-left: calc(1.25rem - 4px);
+  transform: translateX(2px);
+}
+
+.ventas-module .cliente-item-nombre {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .cliente-item-nombre::before {
+  content: "👤";
+  font-size: 0.9rem;
+}
+
+.ventas-module .cliente-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.ventas-module .cliente-item-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .cliente-item-info-row span {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ventas-module .no-cliente-results {
+  padding: 2rem 1.25rem;
+  text-align: center;
+  background: white;
+  border-radius: 0 0 calc(var(--border-radius) - 2px) calc(var(--border-radius) - 2px);
+}
+
+.ventas-module .no-cliente-message {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .no-cliente-message::before {
+  content: "🔍";
+  font-size: 1.2rem;
+}
+
+.ventas-module .cliente-search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 9999;
+}
+
+/* ===== SERVICIOS/CITAS - COMO AGREGAR SERVICIOS EN CITAS ===== */
+.ventas-module .servicios-selector {
+  margin-bottom: 1.5rem;
+}
+
+.ventas-module .servicios-selector label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.ventas-module .search-icon-small {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+.ventas-module .servicio-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--card-bg);
+  transition: var(--transition);
+}
+
+.ventas-module .servicio-search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+  outline: none;
+}
+
+.ventas-module .servicios-results-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ventas-module .servicio-result-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.ventas-module .servicio-result-item:last-child {
+  border-bottom: none;
+}
+
+.ventas-module .servicio-result-item:hover {
+  background: rgba(232, 62, 140, 0.05);
+  border-left: 4px solid var(--primary-color);
+  padding-left: calc(1rem - 4px);
+}
+
+.ventas-module .servicio-result-title {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.ventas-module .servicio-result-details {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.ventas-module .servicios-asociados {
+  margin-top: 1rem;
+}
+
+.ventas-module .servicio-asociado-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(232, 62, 140, 0.05);
+  border: 1px solid rgba(232, 62, 140, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  transition: var(--transition);
+}
+
+.ventas-module .servicio-asociado-item:hover {
+  background: rgba(232, 62, 140, 0.08);
+  border-color: rgba(232, 62, 140, 0.2);
+}
+
+.ventas-module .servicio-asociado-info {
+  flex: 1;
+}
+
+.ventas-module .servicio-asociado-title {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .servicio-asociado-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.ventas-module .remover-servicio-btn {
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  font-size: 0.8rem;
+}
+
+.ventas-module .remover-servicio-btn:hover {
+  background: #c82333;
+  transform: scale(1.1);
+}
+
+.ventas-module .no-servicios-asociados {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed var(--border-color);
+}
+
+.ventas-module .no-servicios-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* ===== FORMULARIO DE ESTADO Y PAGO ===== */
+.ventas-module .ventas-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.ventas-module .ventas-form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .ventas-form-group select,
+.ventas-module .ventas-form-group input,
+.ventas-module .ventas-form-control {
+  /* Added for consistency */
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--card-bg);
+  transition: var(--transition);
+}
+
+.ventas-module .ventas-form-group select:focus,
+.ventas-module .ventas-form-group input:focus,
+.ventas-module .ventas-form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+  outline: none;
+}
+
+.ventas-module .ventas-form-group select.error,
+.ventas-module .ventas-form-group input.error,
+.ventas-module .ventas-form-control.error {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+/* Estilos para los detalles de servicio en el formulario de edición/creación */
+.ventas-module .detalle-item {
+  background: rgba(232, 62, 140, 0.03);
+  border: 1px solid rgba(232, 62, 140, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative; /* Needed for absolute positioning of cita-service-badge */
+}
+
+.ventas-module .detalle-item .ventas-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ventas-module .remove-detalle-button {
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ventas-module .remove-detalle-button:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+.ventas-module .add-detalle-button {
+  background: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  width: fit-content;
+}
+
+.ventas-module .add-detalle-button:hover {
+  background: #1e7e34;
+  transform: translateY(-2px);
+}
+
+/* Badge para servicios de cita */
+.ventas-module .cita-service-badge {
+  background-color: var(--info-color); /* A light blue/info color */
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  position: absolute; /* Position it within the detalle-item */
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+}
+
+/* ===== OBSERVACIONES ===== */
+.ventas-module .ventas-form-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: var(--transition);
+}
+
+.ventas-module .ventas-form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+}
+
+/* ===== RESUMEN - IGUAL A CITAS ===== */
+.ventas-module .resumen-venta-compact {
+  /* Renamed from resumen-cita-compact */
+  background: rgba(232, 62, 140, 0.05);
+  border: 1px solid var(--primary-light);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.ventas-module .resumen-venta-compact h4 {
+  color: var(--primary-color);
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ventas-module .resumen-items {
+  margin-bottom: 0.75rem;
+}
+
+.ventas-module .resumen-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.ventas-module .resumen-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  border-top: 2px solid var(--primary-color);
+  padding-top: 0.75rem;
+}
+
+/* ===== VISTA DE DETALLE - IGUAL A CITAS ===== */
+.ventas-module .ventas-detail-info-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ventas-module .ventas-detail-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ventas-module .ventas-detail-info-row:last-child {
+  border-bottom: none;
+}
+
+.ventas-module .ventas-detail-label {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.ventas-module .ventas-detail-value {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.ventas-module .servicios-detalle-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.ventas-module .servicio-detalle-card {
+  background: rgba(232, 62, 140, 0.05);
+  border: 1px solid rgba(232, 62, 140, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.ventas-module .servicio-detalle-nombre {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.ventas-module .servicio-detalle-precio {
+  color: var(--success-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.ventas-module .servicio-detalle-duracion {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.ventas-module .total-detalle-section {
+  border-top: 2px solid var(--primary-color);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.ventas-module .total-detalle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.ventas-module .total-detalle-label {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.ventas-module .total-detalle-value {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.ventas-module .ventas-observaciones-detalle {
+  grid-column: 1 / -1;
+}
+
+.ventas-module .ventas-observaciones-content {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.ventas-module .ventas-observaciones-content p {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== MODAL DE CAMBIO DE ESTADO ===== */
+.ventas-module .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.ventas-module .modal-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+  border: 1px solid var(--border-color);
+}
+
+.ventas-module .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.ventas-module .modal-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Header rosado para modal con clases del sistema */
+.ventas-rosa-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: white;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Campos del modal (cuando se usa el modal del sistema desde Venta Servicios) */
+.citas-module-modal-body .ventas-form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.citas-module-modal-body .form-group {
+  margin: 1rem 0;
+}
+
+.citas-module-modal-body .form-control,
+.citas-module-modal-body select,
+.citas-module-modal-body input,
+.citas-module-modal-body textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--card-bg);
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+.citas-module-modal-body .form-control:focus,
+.citas-module-modal-body select:focus,
+.citas-module-modal-body input:focus,
+.citas-module-modal-body textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.15);
+  outline: none;
+}
+
+.citas-module-modal-body textarea.form-control {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.ventas-module .modal-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.ventas-module .modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.ventas-module .confirm-content {
+  padding: 2rem;
+}
+
+.ventas-module .status-change-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(232, 62, 140, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(232, 62, 140, 0.1);
+}
+
+.ventas-module .venta-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ventas-module .user-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.ventas-module .venta-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.ventas-module .venta-info p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.ventas-module .status-change-arrow {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.ventas-module .new-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .status-current,
+.ventas-module .status-new {
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  text-align: center;
+  min-width: 80px;
+}
+
+.ventas-module .status-current.pendiente,
+.ventas-module .status-new.pendiente {
+  background: rgba(255, 193, 7, 0.2);
+  color: #856404;
+}
+
+.ventas-module .status-current.pagada,
+.ventas-module .status-new.pagada {
+  background: rgba(40, 167, 69, 0.2);
+  color: #155724;
+}
+
+.ventas-module .status-current.cancelada,
+.ventas-module .status-new.cancelada {
+  background: rgba(220, 53, 69, 0.2);
+  color: #721c24;
+}
+
+.ventas-module .metodo-pago-section {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.ventas-module .metodo-pago-section label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.ventas-module .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: white;
+  transition: var(--transition);
+}
+
+.ventas-module .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+  outline: none;
+}
+
+.ventas-module .confirm-question {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 1.5rem 0;
+  font-weight: 500;
+}
+
+.ventas-module .form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background: linear-gradient(to bottom, #f8f9fa, #f1f3f4);
+  border-radius: 0 0 12px 12px;
+}
+
+/* ===== ERROR GENERAL ===== */
+.ventas-module .ventas-general-error {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--danger-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin: 0 2rem 1rem 2rem;
+  border-left: 4px solid var(--danger-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ventas-module .ventas-error-text {
+  color: var(--danger-color);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ventas-module .ventas-error-text::before {
+  content: "⚠";
+  font-weight: bold;
+}
+
+/* ===== LOADING ===== */
+.ventas-module .ventas-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
+
+.ventas-module .ventas-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(232, 62, 140, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.ventas-module .ventas-spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1400px) {
+  .ventas-module .ventas-manicuristas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .ventas-module .ventas-form-content-compact {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .ventas-module .ventas-search-container-extended {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ventas-module .ventas-manicuristas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ventas-module .ventas-admin-filters,
+  .ventas-module .ventas-admin-filters-simplified {
+    /* Apply to both filter types */
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .ventas-module .ventas-search-container-extended {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ventas-module .ventas-manicuristas-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  .ventas-module .ventas-form-content-compact {
+    padding: 1rem;
+  }
+  .ventas-module .ventas-form-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .ventas-module .ventas-form-header-left,
+  .ventas-module .ventas-form-header-right {
+    width: 100%;
+  }
+  .ventas-module .ventas-admin-table {
+    font-size: 0.8rem;
+  }
+  .ventas-module .ventas-admin-table th,
+  .ventas-module .ventas-admin-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  .ventas-module .ventas-action-buttons-improved {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .ventas-module .action-button-improved {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .ventas-module .ventas-search-container-extended {
+    min-width: 250px;
+  }
+  .ventas-module .modal-container {
+    margin: 1rem;
+    max-width: calc(100vw - 2rem);
+  }
+  .ventas-module .modal-header {
+    padding: 1rem 1.5rem;
+  }
+  .ventas-module .modal-header h2 {
+    font-size: 1rem;
+  }
+  .ventas-module .confirm-content {
+    padding: 1.5rem;
+  }
+  .ventas-module .status-change-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .ventas-module .status-change-arrow {
+    transform: rotate(90deg);
+  }
+  .ventas-module .form-actions {
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+  }
+  .ventas-module .ventas-admin-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .ventas-module .ventas-admin-button {
+    width: 100%;
+  }
+  .ventas-module .ventas-form-title {
+    font-size: 1.4rem;
+  }
+  .ventas-module .ventas-form-content-compact {
+    grid-template-columns: 1fr;
+  }
+  .ventas-module .ventas-pagination {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .ventas-module .ventas-pagination-button {
+    min-width: 35px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  .ventas-module .ventas-search-container-extended {
+    min-width: 180px;
+  }
+}

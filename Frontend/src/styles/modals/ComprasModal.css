@@ -1,0 +1,888 @@
+/* ===== ESTILOS PARA VISTAS DE FORMULARIO DE COMPRAS (ENCAPSULADOS) ===== */
+
+.compras-module .compra-form-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  scrollbar-gutter: stable; /* evita saltos al aparecer/desaparecer scroll vertical */
+}
+
+/* Header del formulario */
+.compras-module .form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 12px; /* Bordes redondeados */
+}
+
+.compras-module .form-header-left,
+.compras-module .form-header-right {
+  flex: 0 0 auto;
+}
+
+.compras-module .form-title {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+/* Contenido del formulario */
+.compras-module .form-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  padding: 1.2rem;
+  min-height: calc(100vh - 120px);
+  align-items: start;
+}
+
+/* Lado izquierdo - Campos del formulario */
+.compras-module .form-left {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  height: fit-content; /* Ajustar altura natural */
+  max-width: 100%;
+  padding-bottom: 1rem; /* Ajuste fino inferior */
+  margin-left: 0; /* Alinear con padding de form-header */
+}
+
+.compras-module .form-section h3 {
+  color: #212529;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e91e63;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compras-module .form-section h3::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(to bottom, #e91e63, #f48fb1);
+  border-radius: 2px;
+}
+
+.compras-module .form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem; /* Reducir un poco el espacio inferior */
+}
+
+.compras-module .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.compras-module .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.compras-module .form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.compras-module .form-icon {
+  color: #e91e63;
+  font-size: 1rem;
+}
+
+.compras-module .form-group input,
+.compras-module .form-group select,
+.compras-module .form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f9f9fa;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Calendario con bordes redondeados */
+.compras-module .form-group input[type="date"] {
+  border-radius: 10px;
+}
+
+.compras-module .form-group input:focus,
+.compras-module .form-group select:focus,
+.compras-module .form-group textarea:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.15);
+  background-color: white;
+  transform: translateY(-1px);
+}
+
+.compras-module .form-group input.error,
+.compras-module .form-group select.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.compras-module .error-text {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.compras-module .error-text::before {
+  content: "⚠";
+  font-weight: bold;
+}
+
+/* Campo de solo lectura */
+.compras-module .readonly-field {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 500;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Lado derecho - Insumos */
+.compras-module .form-right {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  height: auto;
+  max-height: none;
+  overflow: visible; /* sin scroll por defecto */
+}
+
+/* Scroll sólo cuando hay más de 5 registros */
+.compras-module .form-right.scrollable {
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges; /* reserva espacio del scroll para no mover el layout */
+}
+
+.compras-module .insumos-section h3 {
+  color: #212529;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e91e63;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compras-module .insumos-section h3::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(to bottom, #e91e63, #f48fb1);
+  border-radius: 2px;
+}
+
+/* Buscador estilo para proveedor (reutiliza estilos globales ya existentes en Novedades) */
+.compras-module #proveedor-select-container .searchable-input {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+.compras-module #proveedor-select-container .searchable-dropdown {
+  border-radius: 10px;
+}
+
+/* Formulario para agregar insumos */
+.compras-module .add-insumo-form {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.compras-module .add-insumo-form h4 {
+  color: #495057;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.compras-module .insumo-selector-compact {
+  margin-bottom: 1rem;
+}
+
+.compras-module .open-insumo-modal-btn {
+  background: linear-gradient(135deg, #e91e63, #f48fb1);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
+}
+
+.compras-module .open-insumo-modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+}
+
+.compras-module .selected-insumo-preview {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compras-module .selected-label {
+  font-weight: 600;
+  color: #2e7d32;
+  font-size: 0.85rem;
+}
+
+.compras-module .selected-name {
+  color: #1b5e20;
+  font-weight: 500;
+}
+
+.compras-module .insumo-inputs-compact {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 1rem;
+  align-items: end;
+  margin-top: 1rem;
+}
+
+.compras-module .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.compras-module .input-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.compras-module .form-control {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  background-color: white;
+}
+
+.compras-module .form-control:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.15);
+}
+
+/* Remover las flechitas de los inputs numéricos */
+.compras-module .form-control::-webkit-outer-spin-button,
+.compras-module .form-control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.compras-module .form-control[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Modal de insumos */
+.compras-module .insumo-modal {
+  max-width: 800px;
+  width: 90%;
+  max-height: 80vh;
+}
+
+.compras-module .modal-content {
+  padding: 0;
+  max-height: 60vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.compras-module .modal-filters {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.compras-module .filter-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.compras-module .search-group {
+  position: relative;
+  flex: 1;
+}
+
+.compras-module .search-group .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.compras-module .search-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem 0.6rem 2.2rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.compras-module .search-input:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.15);
+}
+
+.compras-module .category-select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: white;
+  min-width: 180px;
+}
+
+.compras-module .category-select:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.15);
+}
+
+.compras-module .insumos-modal-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  max-height: 400px;
+}
+
+.compras-module .insumo-modal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.compras-module .insumo-modal-item:hover {
+  border-color: #e91e63;
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.15);
+  transform: translateY(-1px);
+}
+
+.compras-module .insumo-modal-item.selected {
+  border-color: #e91e63;
+  background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.2);
+}
+
+.compras-module .insumo-info h5 {
+  margin: 0 0 0.25rem 0;
+  color: #212529;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.compras-module .category-name {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.compras-module .stock-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #495057;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.compras-module .no-results {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #6c757d;
+}
+
+.compras-module .no-results svg {
+  font-size: 3rem;
+  color: #dee2e6;
+  margin-bottom: 1rem;
+}
+
+/* Tabla de insumos */
+.compras-module .insumos-table-container {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.compras-module .insumos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.compras-module .insumos-table th {
+  background: linear-gradient(135deg, #e91e63, #f48fb1);
+  color: white;
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.compras-module .insumos-table td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #f1f3f4;
+  vertical-align: middle;
+}
+
+.compras-module .insumos-table tbody tr:hover {
+  background-color: rgba(233, 30, 99, 0.03);
+}
+
+.compras-module .table-input {
+  width: 90px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-align: center;
+  background: #f9f9fa;
+  font-weight: 500;
+}
+
+.compras-module .table-input:focus {
+  border-color: #e91e63;
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.1);
+  background: white;
+}
+
+/* Remover las flechitas de los inputs numéricos */
+.compras-module .table-input::-webkit-outer-spin-button,
+.compras-module .table-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.compras-module .table-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.compras-module .stock-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  background: #f3f4f6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+.compras-module .new-stock {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.75rem;
+  background: #ecfdf5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+.compras-module .price-cell {
+  font-weight: 600;
+  color: #28a745;
+  text-align: right;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.compras-module .total-row {
+  background: linear-gradient(to right, rgba(233, 30, 99, 0.08), rgba(233, 30, 99, 0.05));
+  border-top: 2px solid #e91e63;
+}
+
+.compras-module .total-row td {
+  padding: 1rem 0.5rem;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.compras-module .total-row .price-cell {
+  font-size: 1rem;
+  color: #28a745;
+  font-weight: 700;
+}
+
+/* Sin insumos */
+.compras-module .no-insumos {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #6c757d;
+}
+
+.compras-module .no-insumos-icon {
+  font-size: 3rem;
+  color: #dee2e6;
+  margin-bottom: 1rem;
+}
+
+.compras-module .no-insumos p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* Paginación de insumos */
+.compras-module .insumos-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  position: sticky; /* Permanece visible al final del panel al hacer scroll */
+  bottom: 0;
+  z-index: 2;
+}
+
+.compras-module .insumos-pagination-button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #dee2e6;
+  background: white;
+  color: #495057;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.compras-module .insumos-pagination-button:hover:not(:disabled) {
+  background: #e91e63;
+  color: white;
+  border-color: #e91e63;
+}
+
+.compras-module .insumos-pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.compras-module .insumos-pagination-button.active {
+  background: #e91e63;
+  color: white;
+  border-color: #e91e63;
+}
+
+.compras-module .insumos-pagination-info {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-left: 1rem;
+}
+
+/* ===== ESTADOS EN LISTA DE COMPRAS (estilo badges como en Novedades) ===== */
+.compras-module .status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: none; /* mantener capitalización original: Anulada/Finalizada */
+  min-width: 90px;
+  text-align: center;
+}
+
+/* Aumentar especificidad para la tabla de compras */
+.compras-module .admin-table td .status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.compras-module .status-badge.finalizada {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+/* Estilos para estado Anulada - aplicar a todos los elementos */
+.status-badge.anulada,
+.status-badge.anulado,
+.compras-module .status-badge.anulada,
+.compras-module .status-badge.anulado {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+  color: #dc3545 !important;
+  border: 1px solid rgba(220, 53, 69, 0.2) !important;
+  border-radius: 999px !important;
+  padding: 0.35rem 0.9rem !important;
+  font-weight: 700 !important;
+  display: inline-block !important;
+}
+
+/* Error general */
+.compras-module .general-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 0 2rem 1rem 2rem;
+  border: 1px solid #f5c6cb;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .compras-module .form-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .compras-module .insumo-inputs-compact {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .compras-module .form-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .compras-module .form-header-left,
+  .compras-module .form-header-right {
+    width: 100%;
+  }
+
+  .compras-module .form-content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .compras-module .form-left,
+  .compras-module .form-right {
+    padding: 1.5rem;
+  }
+
+  .compras-module .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .compras-module .insumos-table {
+    font-size: 0.75rem;
+  }
+
+  .compras-module .insumos-table th,
+  .compras-module .insumos-table td {
+    padding: 0.5rem 0.3rem;
+  }
+
+  .compras-module .filter-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .compras-module .search-group {
+    width: 100%;
+  }
+
+  .compras-module .category-select {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .compras-module .form-header {
+    padding: 1rem;
+  }
+
+  .compras-module .form-title {
+    font-size: 1.4rem;
+  }
+
+  .compras-module .form-content {
+    padding: 0.5rem;
+  }
+
+  .compras-module .form-left,
+  .compras-module .form-right {
+    padding: 1rem;
+  }
+
+  .compras-module .add-insumo-form {
+    padding: 1rem;
+  }
+
+  .compras-module .insumo-modal {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .compras-module .modal-filters {
+    padding: 1rem;
+  }
+}
+
+/* Estilos simples para el motivo de anulación - igual que observaciones */
+.compras-module .motivo-anulacion-display {
+  margin-top: 1rem;
+}
+
+.compras-module .motivo-anulacion-display .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.compras-module .motivo-anulacion-display label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.compras-module .motivo-anulacion-display .form-icon {
+  color: #e91e63;
+  font-size: 1rem;
+}
+
+.compras-module .motivo-anulacion-content {
+  padding: 0.75rem 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9fa;
+  color: #495057;
+  min-height: 100px;
+  line-height: 1.5;
+  resize: none;
+  font-family: inherit;
+}
+
+/* Estilos mejorados para el modal de anulación */
+.compras-module .motivo-anulacion-section {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+  border-radius: 8px;
+}
+
+.compras-module .motivo-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.compras-module .motivo-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical;
+  background: #f9f9fa;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.compras-module .motivo-textarea:focus {
+  outline: none;
+  border-color: #e91e63;
+  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.15);
+  background-color: white;
+  transform: translateY(-1px);
+}
+
+.compras-module .motivo-textarea.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.compras-module .character-count {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.5rem;
+  font-style: italic;
+}

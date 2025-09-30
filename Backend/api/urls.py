@@ -39,7 +39,7 @@ urlpatterns = [
     path('clientes/', include('api.clientes.urls')),
     path('manicuristas/', include('api.manicuristas.urls')),
     path('roles/', include('api.roles.urls')),
-    path('codigorecuperacion/', include('api.codigorecuperacion.urls')),
+    # path('codigorecuperacion/', include('api.codigorecuperacion.urls')),  # Comentado - usar auth/solicitar-codigo/
     
     # Restaurar todas las URLs que faltaban
     path('abastecimientos/', include('api.abastecimientos.urls')),

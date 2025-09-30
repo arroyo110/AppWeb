@@ -6,9 +6,7 @@ from api.usuarios.models import Usuario
 class CodigoRecuperacion(models.Model):
     correo_electronico = models.EmailField(
         verbose_name='Correo Electrónico',
-        help_text='Correo electrónico del usuario',
-        null=True,  # Temporalmente nullable para migración
-        blank=True
+        help_text='Correo electrónico del usuario'
     )
     codigo = models.CharField(
         max_length=6,

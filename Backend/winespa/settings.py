@@ -206,6 +206,10 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'noreply@winespa.com')
 
+# Email timeout settings to prevent worker timeout
+EMAIL_TIMEOUT = 30  # 30 seconds timeout
+EMAIL_CONNECTION_TIMEOUT = 10  # 10 seconds connection timeout
+
 # CORS Configuration
 # https://pypi.org/project/django-cors-headers/
 

@@ -25,7 +25,7 @@ class SolicitarCodigoRecuperacionView(APIView):
         expiracion = timezone.now() + timedelta(minutes=10)
 
         CodigoRecuperacion.objects.update_or_create(
-            usuario=usuario,
+            correo_electronico=correo_electronico,
             defaults={
                 'codigo': codigo,
                 'creado_en': timezone.now(),

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://127.0.0.1:8000/api/clientes/"
+const API_URL = "https://appweb-rxph.onrender.com/api/clientes/"
 
 // Configurar interceptor para manejar errores globalmente
 axios.interceptors.response.use(

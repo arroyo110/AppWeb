@@ -1,9 +1,9 @@
 import axios from "axios"
 
 // URL base para apuntar a los endpoints correctos
-const ROLES_URL = "http://127.0.0.1:8000/api/roles/roles/"
-const PERMISOS_URL = "http://127.0.0.1:8000/api/roles/permisos/"
-const ROLES_PERMISOS_URL = "http://127.0.0.1:8000/api/roles/roles-permisos/"
+const ROLES_URL = "https://appweb-rxph.onrender.com/api/roles/roles/"
+const PERMISOS_URL = "https://appweb-rxph.onrender.com/api/roles/permisos/"
+const ROLES_PERMISOS_URL = "https://appweb-rxph.onrender.com/api/roles/roles-permisos/"
 
 // Función para manejar diferentes formatos de respuesta de API
 const extractDataFromResponse = (res) => {

@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (correo, contraseña) => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/auth/login/', {
+            const response = await fetch('https://appweb-rxph.onrender.com/api/auth/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
                 // Cargar permisos en segundo plano (no bloquear navegación)
                 (async () => {
                     try {
-                        const permisosResponse = await fetch(`http://127.0.0.1:8000/api/roles/permisos_usuario/?usuario_id=${data.usuario.id}`, {
+                        const permisosResponse = await fetch(`https://appweb-rxph.onrender.com/api/roles/permisos_usuario/?usuario_id=${data.usuario.id}`, {
                             headers: {
                                 'Authorization': `Bearer ${data.access_token}`,
                                 'Content-Type': 'application/json'
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
         try {
             console.log('Datos enviados al registro:', JSON.stringify(userData, null, 2));
             
-            const response = await fetch('http://127.0.0.1:8000/api/auth/registro/', {
+            const response = await fetch('https://appweb-rxph.onrender.com/api/auth/registro/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ export const AuthProvider = ({ children }) => {
                 
                 // Cargar permisos del usuario después del registro
                 try {
-                    const permisosResponse = await fetch(`http://127.0.0.1:8000/api/roles/permisos_usuario/?usuario_id=${data.usuario.id}`, {
+                    const permisosResponse = await fetch(`https://appweb-rxph.onrender.com/api/roles/permisos_usuario/?usuario_id=${data.usuario.id}`, {
                         headers: {
                             'Authorization': `Bearer ${data.access_token}`,
                             'Content-Type': 'application/json'
@@ -214,7 +214,7 @@ export const AuthProvider = ({ children }) => {
                 return false;
             }
 
-            const response = await fetch('http://127.0.0.1:8000/api/auth/refresh/', {
+            const response = await fetch('https://appweb-rxph.onrender.com/api/auth/refresh/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -242,7 +242,7 @@ export const AuthProvider = ({ children }) => {
     // Función para solicitar recuperación de contraseña
     const requestPasswordReset = async (correo) => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/auth/solicitar-codigo/', {
+            const response = await fetch('https://appweb-rxph.onrender.com/api/auth/solicitar-codigo/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -270,7 +270,7 @@ export const AuthProvider = ({ children }) => {
     // Función para confirmar código y restablecer contraseña
     const resetPassword = async (correo, codigo, nuevaPassword) => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/auth/confirmar-codigo/', {
+            const response = await fetch('https://appweb-rxph.onrender.com/api/auth/confirmar-codigo/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -300,7 +300,7 @@ export const AuthProvider = ({ children }) => {
     // Función para cambiar contraseña temporal
     const cambiarContraseña = async (correo, contraseñaTemporal, nuevaContraseña, confirmarContraseña) => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/auth/cambiar-contraseña/', {
+            const response = await fetch('https://appweb-rxph.onrender.com/api/auth/cambiar-contraseña/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -330,7 +330,7 @@ export const AuthProvider = ({ children }) => {
 
      const loginManicurista = async ({ numero_documento, contraseña }) => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/manicuristas/login/", {
+      const response = await fetch("https://appweb-rxph.onrender.com/api/manicuristas/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

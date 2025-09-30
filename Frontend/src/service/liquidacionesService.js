@@ -1,8 +1,8 @@
 import axios from "axios"
 
 // Configuración base de las URLs de la API
-const BASE_URL = "http://127.0.0.1:8000/api/liquidaciones/"
-const MANICURISTAS_API_URL = "http://127.0.0.1:8000/api/manicuristas/"
+const BASE_URL = "https://appweb-rxph.onrender.com/api/liquidaciones/"
+const MANICURISTAS_API_URL = "https://appweb-rxph.onrender.com/api/manicuristas/"
 
 // Configurar interceptores para manejo de errores globalmente en Axios
 axios.interceptors.response.use(

@@ -1,8 +1,8 @@
 import axios from "axios"
 
 // URLs base actualizadas según la estructura del backend
-const INSUMOS_URL = "http://127.0.0.1:8000/api/insumos/"
-const CATEGORIAS_URL = "http://127.0.0.1:8000/api/categoria-insumos/"
+const INSUMOS_URL = "https://appweb-rxph.onrender.com/api/insumos/"
+const CATEGORIAS_URL = "https://appweb-rxph.onrender.com/api/categoria-insumos/"
 
 /**
  * Helper function to parse Axios errors into a single string message

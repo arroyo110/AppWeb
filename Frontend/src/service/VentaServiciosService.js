@@ -2,7 +2,7 @@ import axios from "axios"
 import apiClient, { apiConfig } from "./apiConfig"
 
 // URL base para el endpoint de venta servicios
-const API_BASE_URL = `${(apiConfig?.baseURL || "http://127.0.0.1:8000/api/")}venta-servicios/`
+const API_BASE_URL = `${(apiConfig?.baseURL || "https://appweb-rxph.onrender.com/api/")}venta-servicios/`
 
 // Configurar interceptores para manejo de errores
 axios.interceptors.response.use(

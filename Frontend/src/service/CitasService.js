@@ -2,7 +2,7 @@ import axios from "axios";
 import apiClient, { apiConfig } from "./apiConfig";
 
 // Configuración base de las URLs de la API (centralizada)
-const API_BASE = apiConfig?.baseURL || "http://127.0.0.1:8000/api/";
+const API_BASE = apiConfig?.baseURL || "https://appweb-rxph.onrender.com/api/";
 const BASE_URL = `${API_BASE}citas/`;
 const CLIENTES_API_URL = `${API_BASE}clientes/`;
 const MANICURISTAS_API_URL = `${API_BASE}manicuristas/`;

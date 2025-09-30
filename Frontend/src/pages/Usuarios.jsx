@@ -583,7 +583,7 @@ const Usuarios = () => {
     try {
       // URL CORREGIDA - quitar la duplicación de "usuarios"
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/usuarios/${userData.id}/crear-cliente/`,
+        `https://appweb-rxph.onrender.com/api/usuarios/${userData.id}/crear-cliente/`,
         {},
         {
           headers: {

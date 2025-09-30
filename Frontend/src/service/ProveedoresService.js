@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // URL base para proveedores
-const PROVEEDORES_URL = "http://127.0.0.1:8000/api/proveedores/"
+const PROVEEDORES_URL = "https://appweb-rxph.onrender.com/api/proveedores/"
 
 /**
  * Helper function to parse Axios errors into a single string message

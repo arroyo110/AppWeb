@@ -49,7 +49,7 @@ const parseAxiosError = (error) => {
 class CategoriaInsumoService {
   constructor() {
     // URL base de la API
-    this.API_URL = "http://127.0.0.1:8000/api/categoria-insumos/"
+    this.API_URL = "https://appweb-rxph.onrender.com/api/categoria-insumos/"
   }
 
   /**

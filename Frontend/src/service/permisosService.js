@@ -1,7 +1,7 @@
 import axios from 'axios';
 import apiClient, { apiConfig } from './apiConfig';
 
-const API_BASE_URL = (apiConfig?.baseURL || 'http://127.0.0.1:8000/api/').replace(/\/$/, '');
+const API_BASE_URL = (apiConfig?.baseURL || 'https://appweb-rxph.onrender.com/api/').replace(/\/$/, '');
 
 // Configurar axios para incluir el token en todas las peticiones
 axios.interceptors.request.use(

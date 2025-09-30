@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:8000/api/codigo-recuperacion/"
+const BASE_URL = "https://appweb-rxph.onrender.com/api/codigo-recuperacion/"
 
 export async function solicitar_codigo_recuperacion(correo_electronico) {
   try {
@@ -37,7 +37,7 @@ export async function solicitar_codigo_recuperacion(correo_electronico) {
 
 export async function cambiar_contrasena(codigo, correo_electronico, password) {
   try {
-    const response = await fetch(`http://127.0.0.1:8000/api/codigo-recuperacion/confirmar-codigo/`, {
+    const response = await fetch(`https://appweb-rxph.onrender.com/api/codigo-recuperacion/confirmar-codigo/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -88,7 +88,7 @@ const RecuperarContrasena = () => {
     try {
       console.log('Enviando código a:', form.email);
       
-      const response = await fetch('http://localhost:8000/api/auth/solicitar-codigo/', {
+      const response = await fetch('https://appweb-rxph.onrender.com/api/auth/solicitar-codigo/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -146,7 +146,7 @@ const RecuperarContrasena = () => {
     try {
       console.log('Cambiando contraseña para:', form.email, 'con código:', form.codigo);
       
-      const response = await fetch('http://localhost:8000/api/auth/confirmar-codigo/', {
+      const response = await fetch('https://appweb-rxph.onrender.com/api/auth/confirmar-codigo/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

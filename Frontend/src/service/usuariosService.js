@@ -1,8 +1,8 @@
 import axios from "axios"
 
 // URLs base actualizadas según la estructura del backend
-const USUARIOS_URL = "http://127.0.0.1:8000/api/usuarios/"
-const ROLES_URL = "http://127.0.0.1:8000/api/roles/roles/"
+const USUARIOS_URL = "https://appweb-rxph.onrender.com/api/usuarios/"
+const ROLES_URL = "https://appweb-rxph.onrender.com/api/roles/roles/"
 
 // Función para manejar diferentes formatos de respuesta de API
 const extractDataFromResponse = (res) => {

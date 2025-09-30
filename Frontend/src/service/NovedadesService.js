@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // URL base para el endpoint de novedades
-const BASE_URL = "http://127.0.0.1:8000/api/novedades/"
+const BASE_URL = "https://appweb-rxph.onrender.com/api/novedades/"
 
 // Función para manejar diferentes formatos de respuesta de API
 const extractDataFromResponse = (res) => {

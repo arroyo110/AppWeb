@@ -1,9 +1,9 @@
 import axios from "axios"
 
 // URLs base
-const ABASTECIMIENTOS_URL = "http://127.0.0.1:8000/api/abastecimientos/"
-const MANICURISTAS_URL = "http://127.0.0.1:8000/api/manicuristas/"
-const INSUMOS_URL = "http://127.0.0.1:8000/api/insumos/"
+const ABASTECIMIENTOS_URL = "https://appweb-rxph.onrender.com/api/abastecimientos/"
+const MANICURISTAS_URL = "https://appweb-rxph.onrender.com/api/manicuristas/"
+const INSUMOS_URL = "https://appweb-rxph.onrender.com/api/insumos/"
 
 // Función para manejar diferentes formatos de respuesta de API
 const extractDataFromResponse = (res) => {

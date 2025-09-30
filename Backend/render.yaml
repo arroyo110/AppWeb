@@ -10,15 +10,13 @@ services:
     startCommand: gunicorn winespa.wsgi:application
     envVars:
       - key: SECRET_KEY
-        generateValue: true
+        value: django-insecure-84c&ett%p-7eli)%tweeo%e!*q&rq=tu7xnz^&bwlpkd70-$qo
       - key: DEBUG
         value: False
       - key: ALLOWED_HOSTS
-        value: winespa-backend.onrender.com
+        value: appweb-rxph.onrender.com,localhost,127.0.0.1
       - key: DATABASE_URL
-        fromDatabase:
-          name: winespa-db
-          property: connectionString
+        value: postgresql://postgres.gwtqrfqkdhwtjegrpnua:F7ob7hyrOVqUcMbq@aws-1-us-east-2.pooler.supabase.com:6543/postgres
       - key: EMAIL_HOST
         value: smtp.gmail.com
       - key: EMAIL_PORT
@@ -26,14 +24,8 @@ services:
       - key: EMAIL_USE_TLS
         value: True
       - key: EMAIL_HOST_USER
-        sync: false
+        value: winetech495@gmail.com
       - key: EMAIL_HOST_PASSWORD
-        sync: false
+        value: llhd kloi dqxk fujsl er
       - key: DEFAULT_FROM_EMAIL
         value: noreply@winespa.com
-
-databases:
-  - name: winespa-db
-    plan: free
-    databaseName: winespa
-    user: winespa_user

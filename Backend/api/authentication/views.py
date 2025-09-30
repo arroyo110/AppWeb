@@ -15,7 +15,7 @@ from .serializers import (
     CambiarContraseñaSerializer
 )
 from api.codigorecuperacion.models import CodigoRecuperacion
-from api.codigorecuperacion.serializers import SolicitudCodigoSerializer, ConfirmarCodigoSerializer
+from .serializers import SolicitudCodigoSerializer, ConfirmarCodigoSerializer
 from django.core.mail import send_mail
 from django.conf import settings
 import secrets

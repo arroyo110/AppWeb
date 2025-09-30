@@ -213,3 +213,33 @@ class CambiarContraseñaSerializer(serializers.Serializer):
             )
         
         return value
+
+
+class SolicitudCodigoSerializer(serializers.Serializer):
+    """
+    Serializer para solicitar código de recuperación
+    """
+    correo_electronico = serializers.EmailField(
+        label='Correo Electrónico',
+        help_text='Ingresa tu correo electrónico'
+    )
+
+
+class ConfirmarCodigoSerializer(serializers.Serializer):
+    """
+    Serializer para confirmar código y cambiar contraseña
+    """
+    correo_electronico = serializers.EmailField(
+        label='Correo Electrónico',
+        help_text='Ingresa tu correo electrónico'
+    )
+    codigo = serializers.CharField(
+        max_length=6,
+        label='Código de Verificación',
+        help_text='Ingresa el código de 6 dígitos enviado a tu correo'
+    )
+    nueva_contraseña = serializers.CharField(
+        write_only=True,
+        label='Nueva Contraseña',
+        help_text='Ingresa tu nueva contraseña'
+    )

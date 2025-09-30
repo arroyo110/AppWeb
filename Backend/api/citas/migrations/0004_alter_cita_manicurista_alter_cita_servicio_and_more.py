@@ -26,9 +26,9 @@ class Migration(migrations.Migration):
         # Limpiar posibles tablas previas (auto M2M antigua y restos de intentos fallidos)
         migrations.RunSQL(
             sql=(
-                "DROP TABLE IF EXISTS `citas_cita_servicios`;"  # posible tabla auto-m2m por nombre legacy
-                "DROP TABLE IF EXISTS `citas_citamanicurista`;"
-                "DROP TABLE IF EXISTS `citas_citaservicio`;"
+                "DROP TABLE IF EXISTS \"citas_cita_servicios\";"  # posible tabla auto-m2m por nombre legacy
+                "DROP TABLE IF EXISTS \"citas_citamanicurista\";"
+                "DROP TABLE IF EXISTS \"citas_citaservicio\";"
             ),
             reverse_sql=migrations.RunSQL.noop,
         ),

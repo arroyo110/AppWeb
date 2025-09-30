@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuración base de axios
 const apiClient = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api/',
+    baseURL: import.meta.env.VITE_API_URL || 'https://appweb-rxph.onrender.com/api/',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -37,7 +37,7 @@ apiClient.interceptors.response.use(
                     throw new Error('No hay refresh token disponible');
                 }
 
-                const response = await axios.post('http://127.0.0.1:8000/api/auth/refresh/', {
+                const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/'}auth/refresh/`, {
                     refresh: refresh
                 });
                 
@@ -71,7 +71,7 @@ apiClient.interceptors.response.use(
 
 // Configuración de la API
 export const apiConfig = {
-    baseURL: 'http://127.0.0.1:8000/api/',
+    baseURL: import.meta.env.VITE_API_URL || 'https://appweb-rxph.onrender.com/api/',
 };
 
 export default apiClient;

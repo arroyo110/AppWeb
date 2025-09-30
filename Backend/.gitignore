@@ -56,5 +56,9 @@ dist/
 # Archivos temporales
 *.tmp
 *.temp
+
+# Archivos comprimidos
 *.rar
 *.zip
+*.7z
+*.tar.gz

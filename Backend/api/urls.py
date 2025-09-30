@@ -1,7 +1,24 @@
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenRefreshView
+from django.http import JsonResponse
+
+def api_root(request):
+    return JsonResponse({
+        'message': 'WineSpa API',
+        'version': '1.0.0',
+        'endpoints': {
+            'auth': '/api/auth/',
+            'usuarios': '/api/usuarios/',
+            'clientes': '/api/clientes/',
+            'manicuristas': '/api/manicuristas/',
+            'servicios': '/api/servicios/',
+            'citas': '/api/citas/',
+            'admin': '/admin/',
+        }
+    })
 
 urlpatterns = [
+    path('', api_root, name='api_root'),
     # Sistema de autenticación unificado
     path('auth/', include('api.authentication.urls')),
     

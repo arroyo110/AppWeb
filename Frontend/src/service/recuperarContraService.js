@@ -1,4 +1,4 @@
-const BASE_URL = "https://appweb-rxph.onrender.com/api/codigo-recuperacion/"
+const BASE_URL = "https://appweb-rxph.onrender.com/api/auth/"
 
 export async function solicitar_codigo_recuperacion(correo_electronico) {
   try {
@@ -37,7 +37,7 @@ export async function solicitar_codigo_recuperacion(correo_electronico) {
 
 export async function cambiar_contrasena(codigo, correo_electronico, password) {
   try {
-    const response = await fetch(`https://appweb-rxph.onrender.com/api/codigo-recuperacion/confirmar-codigo/`, {
+    const response = await fetch(`https://appweb-rxph.onrender.com/api/auth/confirmar-codigo/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export async function cambiar_contrasena(codigo, correo_electronico, password) {
       body: JSON.stringify({
         codigo: codigo,
         correo_electronico: correo_electronico,
-        nueva_password: password,
+        nueva_contraseña: password,
       }),
     })
 

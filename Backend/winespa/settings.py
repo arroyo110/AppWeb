@@ -209,8 +209,17 @@ DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'noreply@winespa.com')
 # CORS Configuration
 # https://pypi.org/project/django-cors-headers/
 
+# CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins (only for development)
 CORS_ALLOW_CREDENTIALS = True  # Allow cookies in requests
+
+# Specific allowed origins for production
+CORS_ALLOWED_ORIGINS = [
+    "https://app-web-two-roan.vercel.app",
+    "https://appweb-rxph.onrender.com",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
 
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -219,6 +228,18 @@ CORS_ALLOW_METHODS = [
     'PATCH',
     'POST',
     'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
 ]
 
 # Cache Configuration

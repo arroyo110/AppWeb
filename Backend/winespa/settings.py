@@ -251,10 +251,6 @@ CORS_ALLOW_HEADERS = [
 # Preflight cache duration
 CORS_PREFLIGHT_MAX_AGE = 86400  # 24 hours
 
-# Additional CORS settings for production
-CORS_ALLOW_PRIVATE_NETWORK = True
-CORS_REPLACE_HTTPS_REFERER = True
-
 # Cache Configuration
 # https://docs.djangoproject.com/en/5.2/topics/cache/
 

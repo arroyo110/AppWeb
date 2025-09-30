@@ -30,7 +30,7 @@ import insumosService from "../../service/InsumosService"
 import { generateCompraPDF, generateCompraPDFSimple, checkAutoTableAvailability } from "../../components/pdfGenerator"
 import PermissionWrapper from "../../components/PermissionWrapper"
 import PermissionButton from "../../components/PermissionButton"
-import "../../styles/modals/comprasModal.css"
+import "../../styles/modals/ComprasModal.css"
 // Add this import at the top with other imports
 import CategoriaInsumoService from "../../service/CategoriaInsumoService"
 
